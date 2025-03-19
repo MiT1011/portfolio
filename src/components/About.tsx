@@ -18,6 +18,7 @@ const technicalSkills = {
     { name: 'Virtual Reality', icon: Globe },
     { name: 'Augmented Reality', icon: Globe },
     { name: 'Game Development', icon: Gamepad2Icon },
+    { name: 'Unity Game Engine', icon: Gamepad2Icon },
   ],
   languages: [
     { name: 'Python', icon: Code },
@@ -95,6 +96,9 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">About Me</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               I am a passionate MTech student specializing in Artificial Intelligence with experience in Generative AI, Deep Learning, Machine Learning, and Natural Language Processing. Skilled in designing and deploying cutting-edge AI applications, I have worked on research collaborations, developed innovative solutions using transformers and large language models, and delivered end-to-end AI applications with real-world impact.
+              <br></br>
+              <br></br>
+              I was selected for the India AI Fellowship, a well-recognized program where I received funding to work on an AI research project. Additionally, my research has led to a conference paper accepted at an IEEE conference, showcasing my contributions to the field.
             </p>
 
             <motion.button

@@ -24,9 +24,9 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: "Conversational Chatbot",
-      shortDescription: "Multi-modal AI chatbot with RAG capabilities",
+      shortDescription: "Multi-modal AI Conversational chatbot with RAG",
       description: "Developed a Conversational AI chatbot supporting text, audio, image, and PDF interactions with RAG tasks for document querying. Built with Streamlit frontend and deployed on Streamlit Cloud.",
-      technologies: ["FAISS", "Groq", "Llama3.3 70b", "Llama3.2-vision", "OpenAI whisper", "Huggingface", "Sqlite", "Langchain", "Embedding"],
+      technologies: ["FAISS", "Huggingface", "Llama3.3 70b", "Llama3.2-vision", "OpenAI whisper", "Groq", "Langchain", "Embedding"],
       link: "https://chat-all-mit-patel.streamlit.app/",
       github: "https://github.com/VirtulMachine01/Adv-Chatbot?tab=readme-ov-file",
       image: "images/chatbot.jpg"
@@ -35,7 +35,7 @@ const Projects = () => {
       title: "Text to SQL",
       shortDescription: "Convert natural language to SQL queries",
       description: "Developed a Text-to-SQL query extractor web application using Google Gemini Pro, where text input is converted into SQL queries and retrieves data from SQLite database.",
-      technologies: ["Gemini flash1.5", "Sqlite", "Streamlit", "Huggingface", "Text-to-SQL"],
+      technologies: ["Gemini Models", "Huggingface", "LangChain", "Sqlite", "Streamlit", "Text-to-SQL"],
       link: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini",
       github: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini/tree/main",
       image: "images/text2sql.jpg"
@@ -44,7 +44,7 @@ const Projects = () => {
       title: "Movie Recommendation System",
       shortDescription: "NLP-based personalized movie suggestions",
       description: "Developed using Count Vectorizer and Cosine Similarity, TMDB database, with data preprocessing using Pandas, Numpy, and Matplotlib. Interactive web application deployed on Streamlit Cloud.",
-      technologies: ["NLP", "TMDB", "Pandas", "Numpy", "Matplotlib", "Streamlit"],
+      technologies: ["NLP", "Embedding", "Streamlit", "TMDB", "Pandas", "Numpy", "Matplotlib"],
       link: "https://movie-recommender-system-by-meet-patel.streamlit.app/",
       github: "https://github.com/MiT1011/Movie_Recommender_System?tab=readme-ov-file",
       image: "images/movie.jpeg"

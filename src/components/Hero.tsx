@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Hand } from 'lucide-react';
 
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
@@ -20,7 +20,7 @@ const Hero = () => {
   const nameControls = useAnimationControls();
   
   // Animation for character by character text reveal
-  const helloText = "Hello\u{1F44B}!!";
+  const helloText = "Hello!!";
   const nameText = "Meet Patel";
   
   const characterAnimation = {
@@ -90,8 +90,8 @@ const Hero = () => {
             className="mb-8 text-center md:text-left"
           >
             <div className="mb-6">
-              <motion.h2 
-                className="text-2xl sm:text-4xl font-bold mb-2 text-purple-300"
+              <motion.div 
+                className="text-2xl sm:text-4xl font-bold mb-2 text-purple-300 flex items-center"
                 initial="hidden"
                 animate={helloControls}
               >
@@ -105,7 +105,14 @@ const Hero = () => {
                     {char}
                   </motion.span>
                 ))}
-              </motion.h2>
+                <motion.span
+                  custom={helloText.length}
+                  variants={characterAnimation}
+                  style={{ display: "inline-block", marginLeft: "5px" }}
+                >
+                  <Hand className="w-8 h-8 text-yellow-300 inline-block" />
+                </motion.span>
+              </motion.div>
               
               <h1 className="text-3xl sm:text-5xl font-bold">
                 I am {" "}
