@@ -6,7 +6,6 @@ import Timeline from './components/Timeline';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
-import Blog from './components/Blog';
 import Footer from './components/Footer';
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
         <Timeline />
         <Projects />
         <Testimonials />
-        <Blog />
         <Contact />
       </main>
       <Footer />

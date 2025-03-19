@@ -10,15 +10,6 @@ const Timeline = () => {
 
   const timelineData = [
     {
-      year: "2023 - 2025",
-      title: "MTech in CSE with Specialization in AI",
-      company: "Defence Institute of Advanced Technology, Pune",
-      description: "CGPA: 8.42/10, Specialized in Artificial Intelligence, Deep Learning, and Machine Learning",
-      type: "education",
-      icon: GraduationCap,
-      color: "bg-green-500"
-    },
-    {
       year: "July 2024 - March 2025",
       title: "Research Intern",
       company: "DRDO (DIA-SVPCoE)",
@@ -28,7 +19,16 @@ const Timeline = () => {
       color: "bg-blue-500"
     },
     {
-      year: "2019 - 2023",
+      year: "Aug 2023 - July 2025",
+      title: "MTech in CSE with Specialization in AI",
+      company: "Defence Institute of Advanced Technology, Pune",
+      description: "CGPA: 8.42/10, Specialized in Artificial Intelligence, Deep Learning, and Machine Learning",
+      type: "education",
+      icon: GraduationCap,
+      color: "bg-green-500"
+    },
+    {
+      year: "Aug 2019 - July 2023",
       title: "BE in Computer Engineering",
       company: "Sarvajanik College of Engineering and Technology, Surat",
       description: "CGPA: 9.10/10, Focused on Computer Engineering and Software Development",
@@ -54,7 +54,7 @@ const Timeline = () => {
         <div ref={ref} className="relative flex">
           {/* Timeline line with gradient - 30% width */}
           <div className="w-[30%] relative">
-            <div className="absolute right-0 h-full w-1 bg-gradient-to-b from-green-500 via-blue-500 to-purple-500"></div>
+            <div className="absolute right-0 h-full w-1 bg-gradient-to-b from-blue-500 via-green-500 to-purple-500"></div>
           </div>
           
           {/* Content area - 70% width */}
@@ -77,23 +77,23 @@ const Timeline = () => {
                   
                   {/* Content */}
                   <div>
+                    {/* Type indicator moved to top left */}
+                    <div className="mb-3">
+                      <div className={`px-4 py-1 rounded-full text-sm font-medium inline-block ${
+                        item.type === "education" 
+                          ? "bg-green-100 text-green-800" 
+                          : "bg-blue-100 text-blue-800"
+                      }`}>
+                        {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                      </div>
+                    </div>
+                    
                     <span className="text-sm font-semibold text-blue-500 bg-blue-50 px-3 py-1 rounded-full inline-block">
                       {item.year}
                     </span>
                     <h3 className="text-xl font-bold text-gray-900 mt-3">{item.title}</h3>
                     <p className="text-lg text-gray-600 font-medium">{item.company}</p>
                     <p className="text-gray-600 mt-3 leading-relaxed">{item.description}</p>
-                  </div>
-
-                  {/* Type indicator */}
-                  <div className="absolute bottom-0 right-0 translate-y-1/2">
-                    <div className={`px-4 py-1 rounded-full text-sm font-medium ${
-                      item.type === "education" 
-                        ? "bg-green-100 text-green-800" 
-                        : "bg-blue-100 text-blue-800"
-                    }`}>
-                      {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
-                    </div>
                   </div>
                 </div>
               </motion.div>
