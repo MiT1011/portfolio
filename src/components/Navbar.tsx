@@ -31,6 +31,12 @@ const Navbar = () => {
     }
   };
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    // Dispatch custom event for Hero animation
+    const event = new CustomEvent('restartHeroAnimation');
+    window.dispatchEvent(event);
+  };
+
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +47,7 @@ const Navbar = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              <a href="#home" className="hover:text-purple-600 px-3 py-2">Home</a>
+              <a href="#home" className="hover:text-purple-600 px-3 py-2" onClick={handleHomeClick}>Home</a>
               <a href="#about" className="hover:text-purple-600 px-3 py-2">About</a>
               <a href="#projects" className="hover:text-purple-600 px-3 py-2">Projects</a>
               <a href="#footer" className="hover:text-purple-600 px-3 py-2">Contact</a>
@@ -69,7 +75,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900">
-            <a href="#home" className="block px-3 py-2 hover:text-purple-600">Home</a>
+            <a href="#home" className="block px-3 py-2 hover:text-purple-600" onClick={handleHomeClick}>Home</a>
             <a href="#about" className="block px-3 py-2 hover:text-purple-600">About</a>
             <a href="#projects" className="block px-3 py-2 hover:text-purple-600">Projects</a>
             <a href="#footer" className="block px-3 py-2 hover:text-purple-600">Contact</a>

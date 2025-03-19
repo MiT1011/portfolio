@@ -5,6 +5,10 @@ import { ArrowUp, Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Create a custom event to trigger animation in Hero
+    const event = new CustomEvent('restartHeroAnimation');
+    window.dispatchEvent(event);
   };
 
   // Custom X (Twitter) icon
