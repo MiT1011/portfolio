@@ -2,9 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, ArrowDown } from 'lucide-react';
 
-const scrollToNextSection = () => {
-  const nextSection = document.getElementById('about');
-  nextSection?.scrollIntoView({ behavior: 'smooth' });
+const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId);
+  section?.scrollIntoView({ behavior: 'smooth' });
+};
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 const Hero = () => {
@@ -26,17 +30,25 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
               MTech Student | AI Specialist
             </p>
-            <p className="text-lg text-gray-300 mb-8">
-              Passionate about Artificial Intelligence, Deep Learning, and Machine Learning. Specializing in Generative AI and Natural Language Processing.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-medium text-lg shadow-lg"
-              onClick={scrollToNextSection}
-            >
-              View My Work
-            </motion.button>
+            
+            <div className="flex flex-wrap gap-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-medium text-lg shadow-lg"
+                onClick={() => scrollToSection('projects')}
+              >
+                View My Work
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-transparent hover:bg-purple-700 text-white border-2 border-white px-8 py-3 rounded-full font-medium text-lg shadow-lg"
+                onClick={() => scrollToTop()}
+              >
+                Get In Touch
+              </motion.button>
+            </div>
           </motion.div>
 
           <motion.div
@@ -56,7 +68,7 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer"
-        onClick={scrollToNextSection}
+        onClick={() => scrollToSection('about')}
       >
         <ArrowDown size={32} />
       </motion.div>

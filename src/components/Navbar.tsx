@@ -44,7 +44,7 @@ const Navbar = () => {
               <a href="#home" className="hover:text-purple-600 px-3 py-2">Home</a>
               <a href="#about" className="hover:text-purple-600 px-3 py-2">About</a>
               <a href="#projects" className="hover:text-purple-600 px-3 py-2">Projects</a>
-              <a href="#contact" className="hover:text-purple-600 px-3 py-2">Contact</a>
+              <a href="#footer" className="hover:text-purple-600 px-3 py-2">Contact</a>
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -72,7 +72,7 @@ const Navbar = () => {
             <a href="#home" className="block px-3 py-2 hover:text-purple-600">Home</a>
             <a href="#about" className="block px-3 py-2 hover:text-purple-600">About</a>
             <a href="#projects" className="block px-3 py-2 hover:text-purple-600">Projects</a>
-            <a href="#contact" className="block px-3 py-2 hover:text-purple-600">Contact</a>
+            <a href="#footer" className="block px-3 py-2 hover:text-purple-600">Contact</a>
             <button
               onClick={toggleTheme}
               className="w-full text-left px-3 py-2 hover:text-purple-600 flex items-center gap-2"

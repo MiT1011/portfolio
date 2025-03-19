@@ -74,25 +74,27 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Social Links</h3>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <Github className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                 <a
-                  href="https://github.com/VirtulMachine01"
+                  href="https://github.com/MiT1011"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 bg-gray-100 dark:bg-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 p-3 rounded-lg transition-colors"
+                  aria-label="GitHub Profile"
                 >
-                  github.com/VirtulMachine01
+                  <Github className="w-6 h-6" />
+                  <span>github.com/MiT1011</span>
                 </a>
               </div>
               <div className="flex items-center space-x-4">
-                <Linkedin className="w-6 h-6 text-gray-600 dark:text-gray-300" />
                 <a
-                  href="https://www.linkedin.com/in/meet-patel-ai/"
+                  href="https://www.linkedin.com/in/meet-patel-b76742202/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 bg-gray-100 dark:bg-gray-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 p-3 rounded-lg transition-colors"
+                  aria-label="LinkedIn Profile"
                 >
-                  linkedin.com/in/meet-patel-ai
+                  <Linkedin className="w-6 h-6" />
+                  <span>linkedin.com/in/meet-patel-b76742202</span>
                 </a>
               </div>
             </div>
