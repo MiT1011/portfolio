@@ -29,7 +29,7 @@ const Projects = () => {
       technologies: ["FAISS", "Groq", "Llama3.3 70b", "Llama3.2-vision", "OpenAI whisper", "Huggingface", "Sqlite", "Langchain", "Embedding"],
       link: "https://chat-all-mit-patel.streamlit.app/",
       github: "https://github.com/VirtulMachine01/Adv-Chatbot?tab=readme-ov-file",
-      image: "https://images.unsplash.com/photo-1594654913560-87d3164489c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+      image: "images/chatbot.jpg"
     },
     {
       title: "Text to SQL",
@@ -38,7 +38,7 @@ const Projects = () => {
       technologies: ["Gemini flash1.5", "Sqlite", "Streamlit", "Huggingface", "Text-to-SQL"],
       link: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini",
       github: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini/tree/main",
-      image: "https://images.unsplash.com/photo-1633412802994-5c058f151b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+      image: "images/text2sql.jpg"
     },
     {
       title: "Movie Recommendation System",
@@ -47,7 +47,7 @@ const Projects = () => {
       technologies: ["NLP", "TMDB", "Pandas", "Numpy", "Matplotlib", "Streamlit"],
       link: "https://movie-recommender-system-by-meet-patel.streamlit.app/",
       github: "https://github.com/MiT1011/Movie_Recommender_System?tab=readme-ov-file",
-      image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+      image: "images/movie.jpeg"
     }
   ];
 

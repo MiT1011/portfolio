@@ -27,7 +27,7 @@ const Hero = () => {
     hidden: { opacity: 0 },
     visible: (i: number) => ({
       opacity: 1,
-      transition: { delay: i * 0.5 },
+      transition: { delay: i * 0.3 },
     }),
   };
 
@@ -176,7 +176,7 @@ const Hero = () => {
           repeat: Infinity,
           repeatType: 'loop'
         }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-50"
         onClick={() => {
           scrollToSection('about');
         }}
