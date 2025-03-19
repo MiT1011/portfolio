@@ -32,9 +32,22 @@ const Navbar = () => {
   };
 
   const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     // Dispatch custom event for Hero animation
     const event = new CustomEvent('restartHeroAnimation');
     window.dispatchEvent(event);
+    
+    // Smooth scroll to home section
+    document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    // Close mobile menu if open
+    if (isOpen) setIsOpen(false);
+    
+    // Smooth scroll to the target section
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -48,9 +61,9 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <a href="#home" className="hover:text-purple-600 px-3 py-2" onClick={handleHomeClick}>Home</a>
-              <a href="#about" className="hover:text-purple-600 px-3 py-2">About</a>
-              <a href="#projects" className="hover:text-purple-600 px-3 py-2">Projects</a>
-              <a href="#footer" className="hover:text-purple-600 px-3 py-2">Contact</a>
+              <a href="#about" className="hover:text-purple-600 px-3 py-2" onClick={(e) => handleNavClick(e, 'about')}>About</a>
+              <a href="#projects" className="hover:text-purple-600 px-3 py-2" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+              <a href="#footer" className="hover:text-purple-600 px-3 py-2" onClick={(e) => handleNavClick(e, 'footer')}>Contact</a>
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -76,9 +89,9 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900">
             <a href="#home" className="block px-3 py-2 hover:text-purple-600" onClick={handleHomeClick}>Home</a>
-            <a href="#about" className="block px-3 py-2 hover:text-purple-600">About</a>
-            <a href="#projects" className="block px-3 py-2 hover:text-purple-600">Projects</a>
-            <a href="#footer" className="block px-3 py-2 hover:text-purple-600">Contact</a>
+            <a href="#about" className="block px-3 py-2 hover:text-purple-600" onClick={(e) => handleNavClick(e, 'about')}>About</a>
+            <a href="#projects" className="block px-3 py-2 hover:text-purple-600" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+            <a href="#footer" className="block px-3 py-2 hover:text-purple-600" onClick={(e) => handleNavClick(e, 'footer')}>Contact</a>
             <button
               onClick={toggleTheme}
               className="w-full text-left px-3 py-2 hover:text-purple-600 flex items-center gap-2"

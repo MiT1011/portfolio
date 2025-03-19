@@ -14,7 +14,7 @@ const Timeline = () => {
       title: "Research Intern",
       company: "DRDO (DIA-SVPCoE)",
       companyLink: "https://diasvpcoe.gujaratuniversity.ac.in/",
-      description: "Conducted research on 'Data Extraction from CCTV Images'. Developed and deployed systems using vision language models and LLMs. Awarded India AI Fellowship for innovative contributions.",
+      description: "Conducted research on 'Visual and Textual Data Extraction from CCTV Images using Transformer-based Models'. Developed and deployed Web API using Flask and deployed on Local machine with Open models.",
       type: "internship",
       icon: Briefcase,
       color: "bg-blue-500"
@@ -64,14 +64,14 @@ const Timeline = () => {
           <p className="text-xl text-gray-600 dark:text-gray-300">Education and Professional Experience</p>
         </motion.div>
 
-        <div ref={ref} className="relative flex">
-          {/* Timeline line with gradient - 30% width */}
-          <div className="w-[30%] relative">
+        <div ref={ref} className="relative flex max-w-6xl mx-auto">
+          {/* Timeline line with gradient - 20% width */}
+          <div className="w-[10%] relative">
             <div className="absolute right-0 h-full w-1 bg-gradient-to-b from-blue-500 via-orange-500 to-purple-500"></div>
           </div>
           
-          {/* Content area - 70% width */}
-          <div className="w-[70%] pl-8">
+          {/* Content area - 80% width */}
+          <div className="w-[90%] pl-8">
             {timelineData.map((item, index) => (
               <motion.div
                 key={index}
