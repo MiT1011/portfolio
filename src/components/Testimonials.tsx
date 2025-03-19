@@ -1,30 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote: "An exceptional developer who delivered beyond our expectations.",
-    name: "Sarah Johnson",
-    role: "CTO",
-    company: "TechCorp",
-    linkedin: "https://linkedin.com/in/example"
-  },
-  {
-    quote: "Transformed our vision into reality with impressive attention to detail.",
-    name: "Michael Chen",
-    role: "Product Manager",
-    company: "InnovateLabs",
-    linkedin: "https://linkedin.com/in/example"
-  },
-  {
-    quote: "Outstanding technical skills and excellent communication throughout.",
-    name: "Emma Davis",
-    role: "CEO",
-    company: "DigitalFirst",
-    linkedin: "https://linkedin.com/in/example"
-  }
-];
 
 const Testimonials = () => {
   return (
@@ -35,43 +10,21 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center"
         >
-          <h2 className="text-3xl font-bold mb-4">Client Testimonials</h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+          <div className="mx-auto max-w-3xl bg-gradient-to-r from-purple-300 to-indigo-300 dark:from-purple-800 dark:to-indigo-900 p-10 sm:p-16 rounded-2xl shadow-xl">
+            <motion.p 
+              className="text-2xl sm:text-3xl md:text-4xl font-handwriting text-gray-800 dark:text-white leading-relaxed"
+              style={{ fontFamily: "'Caveat', 'Brush Script MT', cursive" }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg border border-purple-100 dark:border-purple-900"
             >
-              <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {testimonial.role} at {testimonial.company}
-                  </p>
-                </div>
-                <a
-                  href={testimonial.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-purple-600 hover:text-purple-700"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              "Exploring the endless possibilities of AI, where creativity meets technology"
+            </motion.p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

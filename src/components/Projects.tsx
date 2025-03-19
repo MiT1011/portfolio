@@ -25,7 +25,7 @@ const Projects = () => {
     {
       title: "Conversational Chatbot",
       shortDescription: "Multi-modal AI Conversational chatbot with RAG",
-      description: "Developed a Conversational AI chatbot supporting text, audio, image, and PDF interactions with RAG tasks for document querying. Built with Streamlit frontend and deployed on Streamlit Cloud.",
+      description: "Developed a Conversational AI chatbot supporting user input as text, audio, image and PDF interactions using RAG for document querying. Web Application is built with Streamlit frontend and deployed on Streamlit Cloud.",
       technologies: ["FAISS", "Huggingface", "Llama3.3 70b", "Llama3.2-vision", "OpenAI whisper", "Groq", "Langchain", "Embedding"],
       link: "https://chat-all-mit-patel.streamlit.app/",
       github: "https://github.com/VirtulMachine01/Adv-Chatbot?tab=readme-ov-file",

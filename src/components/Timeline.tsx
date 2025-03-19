@@ -20,21 +20,22 @@ const Timeline = () => {
       color: "bg-blue-500"
     },
     {
-      year: "Aug 2023 - July 2025",
-      title: "MTech in CSE with Specialization in AI",
+      year: "Aug 2023 - Present",
+      title: "MTech in CSE (Artificial Intelligence)",
       company: "Defence Institute of Advanced Technology, Pune",
       companyLink: "https://diat.ac.in/",
-      description: "CGPA: 8.42/10, Specialized in Artificial Intelligence, Deep Learning, and Machine Learning",
+      cgpa: "CGPA: 8.42/10",
+      description: "Specialized in Artificial Intelligence, Deep Learning, Machine Learning, Image Processing, Computer Vision, Natural Language Processing, Virtual Reality and Augmented Reality.",
       type: "education",
       icon: GraduationCap,
       color: "bg-green-500"
     },
     {
       year: "Feb 2023 - July 2023",
-      title: "Game Developer Intern",
+      title: "Unity Game Developer",
       company: "ZenVara Infotech LLP",
       companyLink: "https://zenvarainfotech.com",
-      description: "Developed 2D and 3D games as per requirements and created game prototypes using Unity Game Engine with C# scripting language.",
+      description: "Designed and developed engaging 2D and 3D games, building interactive prototypes using Unity and C#. Collaborated with the team to implement game mechanics, optimize performance, and enhance user experience. Gained hands-on experience in game physics, UI/UX, and asset integration while delivering functional and creative gaming solutions.",
       type: "internship",
       icon: Briefcase,
       color: "bg-orange-500"
@@ -44,7 +45,8 @@ const Timeline = () => {
       title: "BE in Computer Engineering",
       company: "Sarvajanik College of Engineering and Technology, Surat",
       companyLink: "https://scet.ac.in/",
-      description: "CGPA: 9.10/10, Focused on Computer Engineering and Software Development",
+      cgpa: "CGPA: 9.10/10",
+      description: "Focused on Computer Engineering and Software Development core Subjects",
       type: "education",
       icon: GraduationCap,
       color: "bg-purple-500"
@@ -114,7 +116,14 @@ const Timeline = () => {
                       {item.company}
                       <ExternalLink size={16} className="opacity-70" />
                     </a>
-                    <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">{item.description}</p>
+                    {item.type === "education" ? (
+                      <div className="mt-3">
+                        <p className="text-gray-800 dark:text-gray-200 font-semibold">{item.cgpa}</p>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
+                      </div>
+                    ) : (
+                      <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">{item.description}</p>
+                    )}
                   </div>
                 </div>
               </motion.div>
