@@ -103,6 +103,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-medium shadow-lg inline-flex items-center gap-2"
+              onClick={() => window.open("https://drive.google.com/file/d/1j3J9sF1DHysYPkYRNaL3ZIKaLN_MsS5x/view?usp=sharing", "_blank")}
             >
               Download Resume
               <motion.span

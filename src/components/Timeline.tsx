@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { GraduationCap, Briefcase, Award, BookOpen } from "lucide-react";
+import { GraduationCap, Briefcase, Award, BookOpen, ExternalLink } from "lucide-react";
 
 const Timeline = () => {
   const [ref, inView] = useInView({
@@ -13,6 +13,7 @@ const Timeline = () => {
       year: "July 2024 - March 2025",
       title: "Research Intern",
       company: "DRDO (DIA-SVPCoE)",
+      companyLink: "https://diasvpcoe.gujaratuniversity.ac.in/",
       description: "Conducted research on 'Data Extraction from CCTV Images'. Developed and deployed systems using vision language models and LLMs. Awarded India AI Fellowship for innovative contributions.",
       type: "internship",
       icon: Briefcase,
@@ -22,15 +23,27 @@ const Timeline = () => {
       year: "Aug 2023 - July 2025",
       title: "MTech in CSE with Specialization in AI",
       company: "Defence Institute of Advanced Technology, Pune",
+      companyLink: "https://diat.ac.in/",
       description: "CGPA: 8.42/10, Specialized in Artificial Intelligence, Deep Learning, and Machine Learning",
       type: "education",
       icon: GraduationCap,
       color: "bg-green-500"
     },
     {
+      year: "Feb 2023 - July 2023",
+      title: "Game Developer Intern",
+      company: "ZenVara Infotech LLP",
+      companyLink: "https://zenvarainfotech.com",
+      description: "Developed 2D and 3D games as per requirements and created game prototypes using Unity Game Engine with C# scripting language.",
+      type: "internship",
+      icon: Briefcase,
+      color: "bg-orange-500"
+    },
+    {
       year: "Aug 2019 - July 2023",
       title: "BE in Computer Engineering",
       company: "Sarvajanik College of Engineering and Technology, Surat",
+      companyLink: "https://scet.ac.in/",
       description: "CGPA: 9.10/10, Focused on Computer Engineering and Software Development",
       type: "education",
       icon: GraduationCap,
@@ -39,7 +52,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,14 +60,14 @@ const Timeline = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">My Journey</h2>
-          <p className="text-xl text-gray-600">Education and Professional Experience</p>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Education and Professional Experience</p>
         </motion.div>
 
         <div ref={ref} className="relative flex">
           {/* Timeline line with gradient - 30% width */}
           <div className="w-[30%] relative">
-            <div className="absolute right-0 h-full w-1 bg-gradient-to-b from-blue-500 via-green-500 to-purple-500"></div>
+            <div className="absolute right-0 h-full w-1 bg-gradient-to-b from-blue-500 via-orange-500 to-purple-500"></div>
           </div>
           
           {/* Content area - 70% width */}
@@ -67,7 +80,7 @@ const Timeline = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative mb-12"
               >
-                <div className="bg-white rounded-xl shadow-xl p-6 relative transform hover:scale-105 transition-transform duration-300">
+                <div className="bg-white dark:bg-gray-700 rounded-xl shadow-xl p-6 relative transform hover:scale-105 transition-transform duration-300">
                   {/* Decorative elements */}
                   <div className="absolute -left-12 top-1/2 transform -translate-y-1/2">
                     <div className={`w-8 h-8 ${item.color} rounded-full flex items-center justify-center shadow-lg`}>
@@ -81,19 +94,27 @@ const Timeline = () => {
                     <div className="mb-3">
                       <div className={`px-4 py-1 rounded-full text-sm font-medium inline-block ${
                         item.type === "education" 
-                          ? "bg-green-100 text-green-800" 
-                          : "bg-blue-100 text-blue-800"
+                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100" 
+                          : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100"
                       }`}>
                         {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
                       </div>
                     </div>
                     
-                    <span className="text-sm font-semibold text-blue-500 bg-blue-50 px-3 py-1 rounded-full inline-block">
+                    <span className="text-sm font-semibold text-blue-500 bg-blue-50 dark:bg-blue-900 dark:text-blue-100 px-3 py-1 rounded-full inline-block">
                       {item.year}
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900 mt-3">{item.title}</h3>
-                    <p className="text-lg text-gray-600 font-medium">{item.company}</p>
-                    <p className="text-gray-600 mt-3 leading-relaxed">{item.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-3">{item.title}</h3>
+                    <a 
+                      href={item.companyLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-lg text-gray-600 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-flex items-center gap-1"
+                    >
+                      {item.company}
+                      <ExternalLink size={16} className="opacity-70" />
+                    </a>
+                    <p className="text-gray-600 dark:text-gray-300 mt-3 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
