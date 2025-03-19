@@ -20,7 +20,7 @@ const Hero = () => {
   const nameControls = useAnimationControls();
   
   // Animation for character by character text reveal
-  const helloText = "Hello!!";
+  const helloText = "Hello\u{1F44B}!!";
   const nameText = "Meet Patel";
   
   const characterAnimation = {
