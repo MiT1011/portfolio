@@ -11,7 +11,7 @@ const Timeline = () => {
   const timelineData = [
     {
       year: "July 2024 - March 2025",
-      title: "Research Intern",
+      title: "AI Research Intern",
       company: "DRDO (DIA-SVPCoE)",
       companyLink: "https://diasvpcoe.gujaratuniversity.ac.in/",
       description: "Conducted research on 'Visual and Textual Data Extraction from CCTV Images using Transformer-based Models'. Developed and deployed Web API using Flask and deployed on Local machine with Open models.",
