@@ -29,7 +29,7 @@ const Projects = () => {
       technologies: ["FAISS", "Huggingface", "Llama3.3 70b", "Llama3.2-vision", "OpenAI whisper", "Groq", "Langchain", "Embedding"],
       link: "https://chat-all-mit-patel.streamlit.app/",
       github: "https://github.com/VirtulMachine01/Adv-Chatbot?tab=readme-ov-file",
-      image: "images/chatbot.jpg"
+      image: "/chatbot.jpg"
     },
     {
       title: "Text to SQL",
@@ -38,7 +38,7 @@ const Projects = () => {
       technologies: ["Gemini Models", "Huggingface", "LangChain", "Sqlite", "Streamlit", "Text-to-SQL"],
       link: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini",
       github: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini/tree/main",
-      image: "images/text2sql.jpg"
+      image: "/text2sql.jpg"
     },
     {
       title: "Movie Recommendation System",
@@ -47,7 +47,7 @@ const Projects = () => {
       technologies: ["NLP", "Embedding", "Streamlit", "TMDB", "Pandas", "Numpy", "Matplotlib"],
       link: "https://movie-recommender-system-by-meet-patel.streamlit.app/",
       github: "https://github.com/MiT1011/Movie_Recommender_System?tab=readme-ov-file",
-      image: "images/movie.jpeg"
+      image: "/movie.jpeg"
     }
   ];
 
