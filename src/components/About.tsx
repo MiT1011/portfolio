@@ -153,7 +153,7 @@ const About = () => {
           >
             <h2 className="text-3xl font-bold mb-6">About Me</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              I'm an <span className="font-semibold text-purple-600">AI Software Engineer</span> with hands-on experience building and shipping production Generative AI systems - including RAG pipelines, vision-language models, finetuning workflows, and complex multi-agent architectures.
+              I'm an <span className="font-semibold text-purple-600">AI Software Engineer</span> with hands-on experience building and shipping production Generative AI systems - including RAG pipelines, vision-language models, finetuning, Agentic workflows, and complex multi-agent architectures.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
               Currently at <span className="font-semibold">Quantum AI Global</span>, I deploy open-source LLMs on H100 GPUs using vLLM, TensorRT and NVIDIA NIM, design multi-agent LangGraph workflows with human-in-the-loop reasoning, and build RAG-powered applications generating 15,000–20,000 token structured outputs.

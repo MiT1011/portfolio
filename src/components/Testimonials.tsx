@@ -21,7 +21,7 @@ const Testimonials = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              "Exploring the endless possibilities of AI, where creativity meets technology"
+              "Problem + Resources + Data + AI → Your requirement, fulfilled."
             </motion.p>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp, Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -58,15 +58,6 @@ const Footer = () => {
                 </a>
               </div>
 
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                <a
-                  href="tel:+918866589159"
-                  className="text-gray-300 hover:text-purple-400 transition-colors text-sm"
-                >
-                  +91 88665 89159
-                </a>
-              </div>
 
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-purple-400 flex-shrink-0" />

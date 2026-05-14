@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -40,18 +40,6 @@ const Contact = () => {
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     meetnpatel101112@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Phone</h4>
-                  <a
-                    href="tel:+918866589159"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  >
-                    +91 88665 89159
                   </a>
                 </div>
               </div>

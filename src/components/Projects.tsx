@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Github, Link, X, Bot, Database, Film } from "lucide-react";
+import { Github, Link, X, Bot, Database, Film, Youtube } from "lucide-react";
 import { useState } from "react";
 
 interface Project {
@@ -13,8 +13,10 @@ interface Project {
   link: string;
   github: string;
   image: string;
+  images?: { src: string; caption: string }[];
   icon: React.FC<{ className?: string }>;
   gradient: string;
+  featured?: boolean;
 }
 
 const Projects = () => {
@@ -44,21 +46,28 @@ const Projects = () => {
       gradient: "from-purple-600 to-blue-500",
     },
     {
-      title: "Text to SQL (Agentic AI)",
-      shortDescription: "Multi-database agentic Text-to-SQL with LangGraph and human-in-the-loop",
+      title: "QueryForge AI — Agentic Text-to-SQL",
+      shortDescription: "7-agent LangGraph pipeline with dual HITL gates, self-healing SQL loop — 98% accuracy on a 78-table production database",
       description:
-        "A multi-database Text-to-SQL system supporting PostgreSQL, MySQL, and SQLite with an interactive schema visualization of 10+ tables and a LangGraph agentic pipeline.",
+        "A production-grade Agentic Text-to-SQL system built on a LangGraph StateGraph that converts plain English into SQL across PostgreSQL, MySQL, and SQLite. Orchestrates 7 specialized agents with parallel schema fan-out, dual Human-in-the-Loop approval gates, and an automatic self-healing retry loop — validated at 98% accuracy on a 78-table enterprise production database.",
       bullets: [
-        "Supports PostgreSQL, MySQL, and SQLite with interactive schema visualization of 10+ tables showing relationships, primary and foreign keys.",
-        "Dual query modes: standard SQL generation and a LangGraph agentic flow with human-in-the-loop confirmation, step-by-step planning, and automatic query refinement on errors.",
-        "Agentic pipeline uses multiple specialized tools for query planning, execution, validation, and self-correction, returning results as interactive graphs and tables.",
+        "Built a 7-agent LangGraph StateGraph (Schema Analyzer, Planner, SQL Generator, Validator, Self-Healer, Executor, Visualizer) with parallel fan-out, typed shared AgentState, and conditional runtime routing across PostgreSQL, MySQL, and SQLite.",
+        "Implemented dual HITL safety gates — Gate 1 approves the NL execution plan before SQL is generated; Gate 2 confirms the exact SQL before any INSERT/UPDATE/DELETE runs — with server-side UUID session persistence across all three API calls.",
+        "Self-Healing loop catches Validator errors and injects full error context back into the SQL Generator for up to 3 automatic retries; Visualizer Agent auto-selects the best chart type (bar, line, pie, scatter, table) from result semantics.",
       ],
-      technologies: ["LangGraph", "PydanticAI", "PostgreSQL", "SQLite", "Gemini", "HuggingFace", "Streamlit", "Agentic AI"],
-      link: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini",
-      github: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini/tree/main",
-      image: "/portfolio/text2sql.jpg",
+      technologies: ["LangGraph", "LangChain", "Llama 4 Scout 17B", "Groq", "FastAPI", "SQLAlchemy", "PostgreSQL", "MySQL", "SQLite", "Pydantic v2", "Agentic AI", "HITL"],
+      link: "https://www.youtube.com/watch?v=so4ItTa0DwQ",
+      github: "https://github.com/MiT1011/text_to_sql",
+      image: "/portfolio/queryforge_result.png",
+      images: [
+        { src: "/portfolio/queryforge_db.png", caption: "DB Connection & Auto Schema Introspection — 23-table PostgreSQL" },
+        { src: "/portfolio/queryforge_er.png", caption: "ER Diagram — Complex FK relationships across 23 tables handled by the Schema Agent" },
+        { src: "/portfolio/queryforge_plan.png", caption: "Planner Agent — Human-in-the-Loop approval gate before SQL generation" },
+        { src: "/portfolio/queryforge_result.png", caption: "Execution result with Visualizer Agent auto-selecting chart type" },
+      ],
       icon: Database,
       gradient: "from-green-500 to-teal-500",
+      featured: true,
     },
     {
       title: "Movie Recommendation System",
@@ -116,10 +125,21 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+              className="relative bg-white dark:bg-gray-700 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group"
               onClick={() => setSelectedProject(project)}
               whileHover={{ y: -6 }}
             >
+              {/* Featured star */}
+              {project.featured && (
+                <motion.div
+                  className="absolute top-3 right-3 z-10 text-xl"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  ⭐
+                </motion.div>
+              )}
+
               {/* Image */}
               <div className="h-48 overflow-hidden relative">
                 <img
@@ -156,26 +176,30 @@ const Projects = () => {
 
                 {/* Links */}
                 <div className="flex items-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                    title="View Code"
-                  >
-                    <Github size={20} />
-                  </a>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                    title="Live Demo"
-                  >
-                    <Link size={20} />
-                  </a>
+                  {project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                      title="View Code"
+                    >
+                      <Github size={20} />
+                    </a>
+                  )}
+                  {project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                      title="Watch Demo"
+                    >
+                      <Link size={20} />
+                    </a>
+                  )}
                   <span className="ml-auto text-xs text-purple-500 font-medium group-hover:underline">View details →</span>
                 </div>
               </div>
@@ -233,6 +257,27 @@ const Projects = () => {
                     ))}
                   </ul>
 
+                  {/* Screenshot Gallery */}
+                  {selectedProject.images && selectedProject.images.length > 0 && (
+                    <div className="mb-6">
+                      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Screenshots</h3>
+                      <div className="grid grid-cols-1 gap-4">
+                        {selectedProject.images.map((img, i) => (
+                          <div key={i} className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600 shadow-md">
+                            <img
+                              src={img.src}
+                              alt={img.caption}
+                              className="w-full object-cover"
+                            />
+                            <p className="text-xs text-gray-500 dark:text-gray-400 px-3 py-2 bg-gray-50 dark:bg-gray-700/50 text-center">
+                              {img.caption}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Tech tags */}
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Technologies</h3>
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -245,24 +290,36 @@ const Projects = () => {
 
                   {/* Action buttons */}
                   <div className="flex gap-4">
-                    <a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-gray-900 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-full flex items-center gap-2 text-sm font-medium transition-colors"
-                    >
-                      <Github size={16} />
-                      View Code
-                    </a>
-                    <a
-                      href={selectedProject.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-full flex items-center gap-2 text-sm font-medium transition-colors"
-                    >
-                      <Link size={16} />
-                      Live Demo
-                    </a>
+                    {selectedProject.github !== "#" && (
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 bg-gray-900 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-full flex items-center gap-2 text-sm font-medium transition-colors"
+                      >
+                        <Github size={16} />
+                        View Code
+                      </a>
+                    )}
+                    {selectedProject.link !== "#" && (
+                      <a
+                        href={selectedProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-full flex items-center gap-2 text-sm font-medium transition-colors"
+                      >
+                        {selectedProject.link.includes("youtube") ? (
+                          <><Youtube size={16} /> Watch Demo</>
+                        ) : (
+                          <><Link size={16} /> Live Demo</>
+                        )}
+                      </a>
+                    )}
+                    {selectedProject.github === "#" && selectedProject.link === "#" && (
+                      <span className="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full text-sm font-medium">
+                        🔒 Links coming soon
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>
