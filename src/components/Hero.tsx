@@ -15,6 +15,45 @@ const Hero = () => {
   // Track if animation has already played
   const [hasAnimationPlayed, setHasAnimationPlayed] = useState(false);
 
+  // Typewriter cycling animation
+  const specializations = [
+    "Generative AI",
+    "Large Language Model",
+    "Agentic Workflows",
+    "Multi-Agent Systems",
+    "Game Development",
+    "Virtual Reality",
+    "Augmented Reality",
+  ];
+  const [typedText, setTypedText] = useState("");
+  const [specIndex, setSpecIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = specializations[specIndex];
+    const typeSpeed = isDeleting ? 40 : 80;
+    const pauseBeforeDelete = 1400;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        const next = current.slice(0, typedText.length + 1);
+        setTypedText(next);
+        if (next === current) {
+          setTimeout(() => setIsDeleting(true), pauseBeforeDelete);
+        }
+      } else {
+        const next = current.slice(0, typedText.length - 1);
+        setTypedText(next);
+        if (next === "") {
+          setIsDeleting(false);
+          setSpecIndex((prev) => (prev + 1) % specializations.length);
+        }
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [typedText, isDeleting, specIndex]);
+
   // Animation controls
   const helloControls = useAnimationControls();
   const nameControls = useAnimationControls();
@@ -135,10 +174,11 @@ const Hero = () => {
               </h1>
             </div>
             <p className="text-xl sm:text-2xl mb-10 text-gray-200">
-              AI Software Engineer
-              <br />
-              <br />
-              LLM & Generative AI | Agentic Workflows | Game Development | Virtual Reality
+              AI Software Engineer at Quantum AI Global
+            </p>
+            <p className="text-lg sm:text-xl mb-10 text-purple-300 font-medium h-8">
+              <span>{typedText}</span>
+              <span className="inline-block w-0.5 h-5 bg-purple-300 ml-0.5 align-middle animate-pulse" />
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <motion.button

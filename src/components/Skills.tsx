@@ -12,7 +12,7 @@ type SkillSection = 'domains' | 'technical' | 'soft';
 const technicalSkills = {
   domains: [
     { name: 'Generative AI', icon: Brain },
-    { name: 'LLM Engineering', icon: Brain },
+    { name: 'Large Language Model', icon: Brain },
     { name: 'Multi-agent Workflows', icon: Cpu },
     { name: 'RAG Pipelines', icon: Database },
     { name: 'Finetuning', icon: Zap },
@@ -120,11 +120,10 @@ const Skills = () => {
               <button
                 key={section}
                 onClick={() => setSkillSection(section)}
-                className={`px-4 py-2 rounded-full transition-colors text-sm font-medium ${
-                  skillSection === section
+                className={`px-4 py-2 rounded-full transition-colors text-sm font-medium ${skillSection === section
                     ? 'bg-purple-600 text-white shadow-lg'
                     : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-                }`}
+                  }`}
               >
                 {section === 'domains' ? 'Domains' : section === 'technical' ? 'Technical' : 'Soft Skills'}
               </button>
@@ -144,11 +143,10 @@ const Skills = () => {
                 <button
                   key={key}
                   onClick={() => setTechCategory(key)}
-                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                    techCategory === key
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${techCategory === key
                       ? 'bg-purple-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-                  }`}
+                    }`}
                 >
                   {label}
                 </button>

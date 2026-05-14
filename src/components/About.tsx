@@ -7,8 +7,8 @@ type SkillSection = 'domains' | 'technical' | 'soft';
 const technicalSkills = {
   domains: [
     { name: 'Generative AI', icon: Brain },
-    { name: 'LLM Engineering', icon: Brain },
-    { name: 'Multi-agent Workflows', icon: Cpu },
+    { name: 'Large Language Models', icon: Brain },
+    { name: 'Multi-Agent Systems', icon: Cpu },
     { name: 'RAG Pipelines', icon: Database },
     { name: 'Finetuning', icon: Zap },
     { name: 'Computer Vision', icon: Globe },

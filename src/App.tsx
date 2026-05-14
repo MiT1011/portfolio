@@ -8,10 +8,12 @@ import Skills from './components/Skills';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import OpenToWork from './components/OpenToWork';
 
 function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+      <OpenToWork />
       <Navbar />
       <main>
         <Hero />

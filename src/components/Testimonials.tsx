@@ -13,7 +13,7 @@ const Testimonials = () => {
           className="text-center"
         >
           <div className="mx-auto max-w-3xl bg-gradient-to-r from-purple-300 to-indigo-300 dark:from-purple-800 dark:to-indigo-900 p-10 sm:p-16 rounded-2xl shadow-xl">
-            <motion.p 
+            <motion.p
               className="text-2xl sm:text-3xl md:text-4xl font-handwriting text-gray-800 dark:text-white leading-relaxed"
               style={{ fontFamily: "'Caveat', 'Brush Script MT', cursive" }}
               initial={{ opacity: 0 }}
@@ -21,7 +21,7 @@ const Testimonials = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              "Problem + Resources + Data + AI → Your requirement, fulfilled."
+              "Your Problem Statement + Resources + Data + AI"→ Your requirement, fulfilled.
             </motion.p>
           </div>
         </motion.div>
