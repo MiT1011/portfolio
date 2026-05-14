@@ -40,7 +40,7 @@ const Footer = () => {
               <br /><br />
               There are more projects and experiments on my GitHub and LinkedIn.
               <br />
-              Feel free to connect - ways happy to chat!
+              Feel free to connect - Always happy to chat!
             </p>
           </div>
 
