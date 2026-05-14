@@ -40,7 +40,7 @@ const Timeline = () => {
       color: "bg-blue-500",
     },
     {
-      year: "Aug 2023 – Present",
+      year: "Aug 2023 – June 2025",
       title: "MTech in CSE (Artificial Intelligence)",
       company: "Defence Institute of Advanced Technology, Pune",
       companyLink: "https://diat.ac.in/",
