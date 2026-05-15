@@ -8,7 +8,7 @@ var require_scheduler_development = __commonJS({
   "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
     "use strict";
     if (true) {
-      (function() {
+      (function () {
         "use strict";
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
@@ -92,13 +92,13 @@ var require_scheduler_development = __commonJS({
         var hasPerformanceNow = typeof performance === "object" && typeof performance.now === "function";
         if (hasPerformanceNow) {
           var localPerformance = performance;
-          exports.unstable_now = function() {
+          exports.unstable_now = function () {
             return localPerformance.now();
           };
         } else {
           var localDate = Date;
           var initialTime = localDate.now();
-          exports.unstable_now = function() {
+          exports.unstable_now = function () {
             return localDate.now() - initialTime;
           };
         }
@@ -258,7 +258,7 @@ var require_scheduler_development = __commonJS({
         }
         function unstable_wrapCallback(callback) {
           var parentPriorityLevel = currentPriorityLevel;
-          return function() {
+          return function () {
             var previousPriorityLevel = currentPriorityLevel;
             currentPriorityLevel = parentPriorityLevel;
             try {
@@ -372,7 +372,7 @@ var require_scheduler_development = __commonJS({
             frameInterval = frameYieldMs;
           }
         }
-        var performWorkUntilDeadline = function() {
+        var performWorkUntilDeadline = function () {
           if (scheduledHostCallback !== null) {
             var currentTime = exports.unstable_now();
             startTime = currentTime;
@@ -394,18 +394,18 @@ var require_scheduler_development = __commonJS({
         };
         var schedulePerformWorkUntilDeadline;
         if (typeof localSetImmediate === "function") {
-          schedulePerformWorkUntilDeadline = function() {
+          schedulePerformWorkUntilDeadline = function () {
             localSetImmediate(performWorkUntilDeadline);
           };
         } else if (typeof MessageChannel !== "undefined") {
           var channel = new MessageChannel();
           var port = channel.port2;
           channel.port1.onmessage = performWorkUntilDeadline;
-          schedulePerformWorkUntilDeadline = function() {
+          schedulePerformWorkUntilDeadline = function () {
             port.postMessage(null);
           };
         } else {
-          schedulePerformWorkUntilDeadline = function() {
+          schedulePerformWorkUntilDeadline = function () {
             localSetTimeout(performWorkUntilDeadline, 0);
           };
         }
@@ -417,7 +417,7 @@ var require_scheduler_development = __commonJS({
           }
         }
         function requestHostTimeout(callback, ms) {
-          taskTimeoutID = localSetTimeout(function() {
+          taskTimeoutID = localSetTimeout(function () {
             callback(exports.unstable_now());
           }, ms);
         }
@@ -470,7 +470,7 @@ var require_react_dom_development = __commonJS({
   "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
     "use strict";
     if (true) {
-      (function() {
+      (function () {
         "use strict";
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
@@ -512,7 +512,7 @@ var require_react_dom_development = __commonJS({
               format += "%s";
               args = args.concat([stack]);
             }
-            var argsWithFormat = args.map(function(item) {
+            var argsWithFormat = args.map(function (item) {
               return String(item);
             });
             argsWithFormat.unshift("Warning: " + format);
@@ -765,7 +765,7 @@ var require_react_dom_development = __commonJS({
           "suppressHydrationWarning",
           "style"
         ];
-        reservedProps.forEach(function(name) {
+        reservedProps.forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             RESERVED,
@@ -780,7 +780,7 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
+        [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function (_ref) {
           var name = _ref[0], attributeName = _ref[1];
           properties[name] = new PropertyInfoRecord(
             name,
@@ -796,7 +796,7 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
+        ["contentEditable", "draggable", "spellCheck", "value"].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             BOOLEANISH_STRING,
@@ -811,7 +811,7 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
+        ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             BOOLEANISH_STRING,
@@ -853,7 +853,7 @@ var require_react_dom_development = __commonJS({
           "seamless",
           // Microdata
           "itemScope"
-        ].forEach(function(name) {
+        ].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             BOOLEAN,
@@ -878,7 +878,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
+        ].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             BOOLEAN,
@@ -899,7 +899,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
+        ].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             OVERLOADED_BOOLEAN,
@@ -922,7 +922,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
+        ].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             POSITIVE_NUMERIC,
@@ -937,7 +937,7 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["rowSpan", "start"].forEach(function(name) {
+        ["rowSpan", "start"].forEach(function (name) {
           properties[name] = new PropertyInfoRecord(
             name,
             NUMERIC,
@@ -953,7 +953,7 @@ var require_react_dom_development = __commonJS({
           );
         });
         var CAMELIZE = /[\-\:]([a-z])/g;
-        var capitalize = function(token) {
+        var capitalize = function (token) {
           return token[1].toUpperCase();
         };
         [
@@ -1033,7 +1033,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(attributeName) {
+        ].forEach(function (attributeName) {
           var name = attributeName.replace(CAMELIZE, capitalize);
           properties[name] = new PropertyInfoRecord(
             name,
@@ -1058,7 +1058,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(attributeName) {
+        ].forEach(function (attributeName) {
           var name = attributeName.replace(CAMELIZE, capitalize);
           properties[name] = new PropertyInfoRecord(
             name,
@@ -1079,7 +1079,7 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(attributeName) {
+        ].forEach(function (attributeName) {
           var name = attributeName.replace(CAMELIZE, capitalize);
           properties[name] = new PropertyInfoRecord(
             name,
@@ -1093,7 +1093,7 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["tabIndex", "crossOrigin"].forEach(function(attributeName) {
+        ["tabIndex", "crossOrigin"].forEach(function (attributeName) {
           properties[attributeName] = new PropertyInfoRecord(
             attributeName,
             STRING,
@@ -1120,7 +1120,7 @@ var require_react_dom_development = __commonJS({
           // sanitizeURL
           false
         );
-        ["src", "href", "action", "formAction"].forEach(function(attributeName) {
+        ["src", "href", "action", "formAction"].forEach(function (attributeName) {
           properties[attributeName] = new PropertyInfoRecord(
             attributeName,
             STRING,
@@ -1421,11 +1421,11 @@ var require_react_dom_development = __commonJS({
           }
           try {
             if (construct) {
-              var Fake = function() {
+              var Fake = function () {
                 throw Error();
               };
               Object.defineProperty(Fake.prototype, "props", {
-                set: function() {
+                set: function () {
                   throw Error();
                 }
               });
@@ -1848,10 +1848,10 @@ var require_react_dom_development = __commonJS({
           var get2 = descriptor.get, set2 = descriptor.set;
           Object.defineProperty(node, valueField, {
             configurable: true,
-            get: function() {
+            get: function () {
               return get2.call(this);
             },
-            set: function(value) {
+            set: function (value) {
               {
                 checkFormFieldValueStringCoercion(value);
               }
@@ -1863,16 +1863,16 @@ var require_react_dom_development = __commonJS({
             enumerable: descriptor.enumerable
           });
           var tracker = {
-            getValue: function() {
+            getValue: function () {
               return currentValue;
             },
-            setValue: function(value) {
+            setValue: function (value) {
               {
                 checkFormFieldValueStringCoercion(value);
               }
               currentValue = "" + value;
             },
-            stopTracking: function() {
+            stopTracking: function () {
               detachTracker(node);
               delete node[valueField];
             }
@@ -1977,8 +1977,8 @@ var require_react_dom_development = __commonJS({
           if (value != null) {
             if (type === "number") {
               if (value === 0 && node.value === "" || // We explicitly want to coerce to number here if possible.
-              // eslint-disable-next-line
-              node.value != value) {
+                // eslint-disable-next-line
+                node.value != value) {
                 node.value = toString(value);
               }
             } else if (node.value !== toString(value)) {
@@ -2082,7 +2082,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React.Children.forEach(props.children, function(child) {
+                React.Children.forEach(props.children, function (child) {
                   if (child == null) {
                     return;
                   }
@@ -2336,10 +2336,10 @@ var require_react_dom_development = __commonJS({
           }
           return parentNamespace;
         }
-        var createMicrosoftUnsafeLocalFunction = function(func) {
+        var createMicrosoftUnsafeLocalFunction = function (func) {
           if (typeof MSApp !== "undefined" && MSApp.execUnsafeLocalFunction) {
-            return function(arg0, arg1, arg2, arg3) {
-              MSApp.execUnsafeLocalFunction(function() {
+            return function (arg0, arg1, arg2, arg3) {
+              MSApp.execUnsafeLocalFunction(function () {
                 return func(arg0, arg1, arg2, arg3);
               });
             };
@@ -2348,7 +2348,7 @@ var require_react_dom_development = __commonJS({
           }
         };
         var reusableSVGContainer;
-        var setInnerHTML = createMicrosoftUnsafeLocalFunction(function(node, html) {
+        var setInnerHTML = createMicrosoftUnsafeLocalFunction(function (node, html) {
           if (node.namespaceURI === SVG_NAMESPACE) {
             if (!("innerHTML" in node)) {
               reusableSVGContainer = reusableSVGContainer || document.createElement("div");
@@ -2370,7 +2370,7 @@ var require_react_dom_development = __commonJS({
         var COMMENT_NODE = 8;
         var DOCUMENT_NODE = 9;
         var DOCUMENT_FRAGMENT_NODE = 11;
-        var setTextContent = function(node, text) {
+        var setTextContent = function (node, text) {
           if (text) {
             var firstChild = node.firstChild;
             if (firstChild && firstChild === node.lastChild && firstChild.nodeType === TEXT_NODE) {
@@ -2479,8 +2479,8 @@ var require_react_dom_development = __commonJS({
           return prefix2 + key.charAt(0).toUpperCase() + key.substring(1);
         }
         var prefixes = ["Webkit", "ms", "Moz", "O"];
-        Object.keys(isUnitlessNumber).forEach(function(prop) {
-          prefixes.forEach(function(prefix2) {
+        Object.keys(isUnitlessNumber).forEach(function (prop) {
+          prefixes.forEach(function (prefix2) {
             isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
           });
         });
@@ -2502,7 +2502,7 @@ var require_react_dom_development = __commonJS({
         function hyphenateStyleName(name) {
           return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-");
         }
-        var warnValidStyle = function() {
+        var warnValidStyle = function () {
         };
         {
           var badVendoredStyleNamePattern = /^(?:webkit|moz|o)[A-Z]/;
@@ -2513,12 +2513,12 @@ var require_react_dom_development = __commonJS({
           var warnedStyleValues = {};
           var warnedForNaNValue = false;
           var warnedForInfinityValue = false;
-          var camelize = function(string) {
-            return string.replace(hyphenPattern, function(_, character) {
+          var camelize = function (string) {
+            return string.replace(hyphenPattern, function (_, character) {
               return character.toUpperCase();
             });
           };
-          var warnHyphenatedStyleName = function(name) {
+          var warnHyphenatedStyleName = function (name) {
             if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
               return;
             }
@@ -2532,35 +2532,35 @@ var require_react_dom_development = __commonJS({
               camelize(name.replace(msPattern$1, "ms-"))
             );
           };
-          var warnBadVendoredStyleName = function(name) {
+          var warnBadVendoredStyleName = function (name) {
             if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
               return;
             }
             warnedStyleNames[name] = true;
             error("Unsupported vendor-prefixed style property %s. Did you mean %s?", name, name.charAt(0).toUpperCase() + name.slice(1));
           };
-          var warnStyleValueWithSemicolon = function(name, value) {
+          var warnStyleValueWithSemicolon = function (name, value) {
             if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
               return;
             }
             warnedStyleValues[value] = true;
             error(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name, value.replace(badStyleValueWithSemicolonPattern, ""));
           };
-          var warnStyleValueIsNaN = function(name, value) {
+          var warnStyleValueIsNaN = function (name, value) {
             if (warnedForNaNValue) {
               return;
             }
             warnedForNaNValue = true;
             error("`NaN` is an invalid value for the `%s` css style property.", name);
           };
-          var warnStyleValueIsInfinity = function(name, value) {
+          var warnStyleValueIsInfinity = function (name, value) {
             if (warnedForInfinityValue) {
               return;
             }
             warnedForInfinityValue = true;
             error("`Infinity` is an invalid value for the `%s` css style property.", name);
           };
-          warnValidStyle = function(name, value) {
+          warnValidStyle = function (name, value) {
             if (name.indexOf("-") > -1) {
               warnHyphenatedStyleName(name);
             } else if (badVendoredStyleNamePattern.test(name)) {
@@ -3316,7 +3316,7 @@ var require_react_dom_development = __commonJS({
                 invalidProps.push(key);
               }
             }
-            var unknownPropString = invalidProps.map(function(prop) {
+            var unknownPropString = invalidProps.map(function (prop) {
               return "`" + prop + "`";
             }).join(", ");
             if (invalidProps.length === 1) {
@@ -3348,7 +3348,7 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        var validateProperty$1 = function() {
+        var validateProperty$1 = function () {
         };
         {
           var warnedProperties$1 = {};
@@ -3356,7 +3356,7 @@ var require_react_dom_development = __commonJS({
           var INVALID_EVENT_NAME_REGEX = /^on[^A-Z]/;
           var rARIA$1 = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
           var rARIACamel$1 = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-          validateProperty$1 = function(tagName, name, value, eventRegistry) {
+          validateProperty$1 = function (tagName, name, value, eventRegistry) {
             if (hasOwnProperty.call(warnedProperties$1, name) && warnedProperties$1[name]) {
               return true;
             }
@@ -3450,7 +3450,7 @@ var require_react_dom_development = __commonJS({
             return true;
           };
         }
-        var warnUnknownProperties = function(type, props, eventRegistry) {
+        var warnUnknownProperties = function (type, props, eventRegistry) {
           {
             var unknownProps = [];
             for (var key in props) {
@@ -3459,7 +3459,7 @@ var require_react_dom_development = __commonJS({
                 unknownProps.push(key);
               }
             }
-            var unknownPropString = unknownProps.map(function(prop) {
+            var unknownPropString = unknownProps.map(function (prop) {
               return "`" + prop + "`";
             }).join(", ");
             if (unknownProps.length === 1) {
@@ -3555,10 +3555,10 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        var batchedUpdatesImpl = function(fn, bookkeeping) {
+        var batchedUpdatesImpl = function (fn, bookkeeping) {
           return fn(bookkeeping);
         };
-        var flushSyncImpl = function() {
+        var flushSyncImpl = function () {
         };
         var isInsideEventHandler = false;
         function finishEventHandler() {
@@ -3628,7 +3628,7 @@ var require_react_dom_development = __commonJS({
           try {
             var options = {};
             Object.defineProperty(options, "passive", {
-              get: function() {
+              get: function () {
                 passiveBrowserEventsSupported = true;
               }
             });
@@ -3720,7 +3720,7 @@ var require_react_dom_development = __commonJS({
         var hasRethrowError = false;
         var rethrowError = null;
         var reporter = {
-          onError: function(error2) {
+          onError: function (error2) {
             hasError = true;
             caughtError = error2;
           }
@@ -4721,8 +4721,8 @@ var require_react_dom_development = __commonJS({
             return NoLanes;
           }
           if (wipLanes !== NoLanes && wipLanes !== nextLanes && // If we already suspended with a delay, then interrupting is fine. Don't
-          // bother waiting until the root is complete.
-          (wipLanes & suspendedLanes) === NoLanes) {
+            // bother waiting until the root is complete.
+            (wipLanes & suspendedLanes) === NoLanes) {
             var nextLane = getHighestPriorityLane(nextLanes);
             var wipLane = getHighestPriorityLane(wipLanes);
             if (
@@ -5057,7 +5057,7 @@ var require_react_dom_development = __commonJS({
             var lane = 1 << index2;
             var updaters = pendingUpdatersLaneMap[index2];
             if (updaters.size > 0) {
-              updaters.forEach(function(fiber) {
+              updaters.forEach(function (fiber) {
                 var alternate = fiber.alternate;
                 if (alternate === null || !memoizedUpdaters.has(alternate)) {
                   memoizedUpdaters.add(fiber);
@@ -5281,7 +5281,7 @@ var require_react_dom_development = __commonJS({
                 var instance = getSuspenseInstanceFromFiber(nearestMounted);
                 if (instance !== null) {
                   queuedTarget.blockedOn = instance;
-                  attemptHydrationAtPriority(queuedTarget.priority, function() {
+                  attemptHydrationAtPriority(queuedTarget.priority, function () {
                     attemptHydrationAtCurrentPriority(nearestMounted);
                   });
                   return;
@@ -5390,7 +5390,7 @@ var require_react_dom_development = __commonJS({
           if (queuedMouse !== null) {
             scheduleCallbackIfUnblocked(queuedMouse, unblocked);
           }
-          var unblock = function(queuedEvent2) {
+          var unblock = function (queuedEvent2) {
             return scheduleCallbackIfUnblocked(queuedEvent2, unblocked);
           };
           queuedPointers.forEach(unblock);
@@ -5748,7 +5748,7 @@ var require_react_dom_development = __commonJS({
             return this;
           }
           assign(SyntheticBaseEvent.prototype, {
-            preventDefault: function() {
+            preventDefault: function () {
               this.defaultPrevented = true;
               var event = this.nativeEvent;
               if (!event) {
@@ -5761,7 +5761,7 @@ var require_react_dom_development = __commonJS({
               }
               this.isDefaultPrevented = functionThatReturnsTrue;
             },
-            stopPropagation: function() {
+            stopPropagation: function () {
               var event = this.nativeEvent;
               if (!event) {
                 return;
@@ -5778,7 +5778,7 @@ var require_react_dom_development = __commonJS({
              * them back into the pool. This allows a way to hold onto a reference that
              * won't be added back into the pool.
              */
-            persist: function() {
+            persist: function () {
             },
             /**
              * Checks if this event should be released back into the pool.
@@ -5793,7 +5793,7 @@ var require_react_dom_development = __commonJS({
           eventPhase: 0,
           bubbles: 0,
           cancelable: 0,
-          timeStamp: function(event) {
+          timeStamp: function (event) {
             return event.timeStamp || Date.now();
           },
           defaultPrevented: 0,
@@ -5834,18 +5834,18 @@ var require_react_dom_development = __commonJS({
           getModifierState: getEventModifierState,
           button: 0,
           buttons: 0,
-          relatedTarget: function(event) {
+          relatedTarget: function (event) {
             if (event.relatedTarget === void 0) return event.fromElement === event.srcElement ? event.toElement : event.fromElement;
             return event.relatedTarget;
           },
-          movementX: function(event) {
+          movementX: function (event) {
             if ("movementX" in event) {
               return event.movementX;
             }
             updateMouseMovementPolyfillState(event);
             return lastMovementX;
           },
-          movementY: function(event) {
+          movementY: function (event) {
             if ("movementY" in event) {
               return event.movementY;
             }
@@ -5868,7 +5868,7 @@ var require_react_dom_development = __commonJS({
         });
         var SyntheticAnimationEvent = createSyntheticEvent(AnimationEventInterface);
         var ClipboardEventInterface = assign({}, EventInterface, {
-          clipboardData: function(event) {
+          clipboardData: function (event) {
             return "clipboardData" in event ? event.clipboardData : window.clipboardData;
           }
         });
@@ -5976,19 +5976,19 @@ var require_react_dom_development = __commonJS({
           locale: 0,
           getModifierState: getEventModifierState,
           // Legacy Interface
-          charCode: function(event) {
+          charCode: function (event) {
             if (event.type === "keypress") {
               return getEventCharCode(event);
             }
             return 0;
           },
-          keyCode: function(event) {
+          keyCode: function (event) {
             if (event.type === "keydown" || event.type === "keyup") {
               return event.keyCode;
             }
             return 0;
           },
-          which: function(event) {
+          which: function (event) {
             if (event.type === "keypress") {
               return getEventCharCode(event);
             }
@@ -6030,13 +6030,13 @@ var require_react_dom_development = __commonJS({
         });
         var SyntheticTransitionEvent = createSyntheticEvent(TransitionEventInterface);
         var WheelEventInterface = assign({}, MouseEventInterface, {
-          deltaX: function(event) {
+          deltaX: function (event) {
             return "deltaX" in event ? event.deltaX : (
               // Fallback to `wheelDeltaX` for Webkit and normalize (right is positive).
               "wheelDeltaX" in event ? -event.wheelDeltaX : 0
             );
           },
-          deltaY: function(event) {
+          deltaY: function (event) {
             return "deltaY" in event ? event.deltaY : (
               // Fallback to `wheelDeltaY` for Webkit and normalize (down is positive).
               "wheelDeltaY" in event ? -event.wheelDeltaY : (
@@ -6073,7 +6073,7 @@ var require_react_dom_development = __commonJS({
         var hasSpaceKeypress = false;
         function isKeypressCommand(nativeEvent) {
           return (nativeEvent.ctrlKey || nativeEvent.altKey || nativeEvent.metaKey) && // ctrlKey && altKey is equivalent to AltGr, and is not a command.
-          !(nativeEvent.ctrlKey && nativeEvent.altKey);
+            !(nativeEvent.ctrlKey && nativeEvent.altKey);
         }
         function getCompositionEventType(domEventName) {
           switch (domEventName) {
@@ -6975,10 +6975,10 @@ var require_react_dom_development = __commonJS({
           var inCapturePhase = (eventSystemFlags & IS_CAPTURE_PHASE) !== 0;
           {
             var accumulateTargetOnly = !inCapturePhase && // TODO: ideally, we'd eventually add all events from
-            // nonDelegatedEvents list in DOMPluginEventSystem.
-            // Then we can remove this special list.
-            // This is a breaking change that can wait until React 18.
-            domEventName === "scroll";
+              // nonDelegatedEvents list in DOMPluginEventSystem.
+              // Then we can remove this special list.
+              // This is a breaking change that can wait until React 18.
+              domEventName === "scroll";
             var _listeners = accumulateSinglePhaseListeners(targetInst, reactName, nativeEvent.type, inCapturePhase, accumulateTargetOnly);
             if (_listeners.length > 0) {
               var _event = new SyntheticEventCtor(reactName, reactEventType, null, nativeEvent, nativeEventTarget);
@@ -7078,7 +7078,7 @@ var require_react_dom_development = __commonJS({
         function listenToAllSupportedEvents(rootContainerElement) {
           if (!rootContainerElement[listeningMarker]) {
             rootContainerElement[listeningMarker] = true;
-            allNativeEvents.forEach(function(domEventName) {
+            allNativeEvents.forEach(function (domEventName) {
               if (domEventName !== "selectionchange") {
                 if (!nonDelegatedEvents.has(domEventName)) {
                   listenToNativeEvent(domEventName, false, rootContainerElement);
@@ -7168,7 +7168,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           }
-          batchedUpdates(function() {
+          batchedUpdates(function () {
             return dispatchEventsForPlugins(domEventName, eventSystemFlags, nativeEvent, ancestorInst);
           });
         }
@@ -7338,7 +7338,7 @@ var require_react_dom_development = __commonJS({
             // @see https://electronjs.org/docs/api/webview-tag
             webview: true
           };
-          validatePropertiesInDevelopment = function(type, props) {
+          validatePropertiesInDevelopment = function (type, props) {
             validateProperties(type, props);
             validateProperties$1(type, props);
             validateProperties$2(type, props, {
@@ -7347,7 +7347,7 @@ var require_react_dom_development = __commonJS({
             });
           };
           canDiffStyleForHydrationWarning = canUseDOM && !document.documentMode;
-          warnForPropDifference = function(propName, serverValue, clientValue) {
+          warnForPropDifference = function (propName, serverValue, clientValue) {
             if (didWarnInvalidHydration) {
               return;
             }
@@ -7359,25 +7359,25 @@ var require_react_dom_development = __commonJS({
             didWarnInvalidHydration = true;
             error("Prop `%s` did not match. Server: %s Client: %s", propName, JSON.stringify(normalizedServerValue), JSON.stringify(normalizedClientValue));
           };
-          warnForExtraAttributes = function(attributeNames) {
+          warnForExtraAttributes = function (attributeNames) {
             if (didWarnInvalidHydration) {
               return;
             }
             didWarnInvalidHydration = true;
             var names = [];
-            attributeNames.forEach(function(name) {
+            attributeNames.forEach(function (name) {
               names.push(name);
             });
             error("Extra attributes from the server: %s", names);
           };
-          warnForInvalidEventListener = function(registrationName, listener) {
+          warnForInvalidEventListener = function (registrationName, listener) {
             if (listener === false) {
               error("Expected `%s` listener to be a function, instead got `false`.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.", registrationName, registrationName, registrationName);
             } else {
               error("Expected `%s` listener to be a function, instead got a value of `%s` type.", registrationName, typeof listener);
             }
           };
-          normalizeHTML = function(parent, html) {
+          normalizeHTML = function (parent, html) {
             var testElement = parent.namespaceURI === HTML_NAMESPACE ? parent.ownerDocument.createElement(parent.tagName) : parent.ownerDocument.createElementNS(parent.namespaceURI, parent.tagName);
             testElement.innerHTML = html;
             return testElement.innerHTML;
@@ -7445,8 +7445,8 @@ var require_react_dom_development = __commonJS({
               } else if (typeof nextProp === "number") {
                 setTextContent(domElement, "" + nextProp);
               }
-            } else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING) ;
-            else if (propKey === AUTOFOCUS) ;
+            } else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING);
+            else if (propKey === AUTOFOCUS);
             else if (registrationNameDependencies.hasOwnProperty(propKey)) {
               if (nextProp != null) {
                 if (typeof nextProp !== "function") {
@@ -7662,9 +7662,9 @@ var require_react_dom_development = __commonJS({
                   styleUpdates[styleName] = "";
                 }
               }
-            } else if (propKey === DANGEROUSLY_SET_INNER_HTML || propKey === CHILDREN) ;
-            else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING) ;
-            else if (propKey === AUTOFOCUS) ;
+            } else if (propKey === DANGEROUSLY_SET_INNER_HTML || propKey === CHILDREN);
+            else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING);
+            else if (propKey === AUTOFOCUS);
             else if (registrationNameDependencies.hasOwnProperty(propKey)) {
               if (!updatePayload) {
                 updatePayload = [];
@@ -7723,7 +7723,7 @@ var require_react_dom_development = __commonJS({
               if (typeof nextProp === "string" || typeof nextProp === "number") {
                 (updatePayload = updatePayload || []).push(propKey, "" + nextProp);
               }
-            } else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING) ;
+            } else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING);
             else if (registrationNameDependencies.hasOwnProperty(propKey)) {
               if (nextProp != null) {
                 if (typeof nextProp !== "function") {
@@ -7877,13 +7877,13 @@ var require_react_dom_development = __commonJS({
                 }
               }
             } else if (shouldWarnDev && true && // Convince Flow we've calculated it (it's DEV-only in this method.)
-            typeof isCustomComponentTag === "boolean") {
+              typeof isCustomComponentTag === "boolean") {
               var serverValue = void 0;
               var propertyInfo = isCustomComponentTag && enableCustomElementPropertySupport ? null : getPropertyInfo(propKey);
-              if (rawProps[SUPPRESS_HYDRATION_WARNING] === true) ;
+              if (rawProps[SUPPRESS_HYDRATION_WARNING] === true);
               else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING || // Controlled attributes are not validated
-              // TODO: Only ignore them on controlled tags.
-              propKey === "value" || propKey === "checked" || propKey === "selected") ;
+                // TODO: Only ignore them on controlled tags.
+                propKey === "value" || propKey === "checked" || propKey === "selected");
               else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
                 var serverHTML = domElement.innerHTML;
                 var nextHtml = nextProp ? nextProp[HTML$1] : void 0;
@@ -8023,9 +8023,9 @@ var require_react_dom_development = __commonJS({
               return;
           }
         }
-        var validateDOMNesting = function() {
+        var validateDOMNesting = function () {
         };
-        var updatedAncestorInfo = function() {
+        var updatedAncestorInfo = function () {
         };
         {
           var specialTags = ["address", "applet", "area", "article", "aside", "base", "basefont", "bgsound", "blockquote", "body", "br", "button", "caption", "center", "col", "colgroup", "dd", "details", "dir", "div", "dl", "dt", "embed", "fieldset", "figcaption", "figure", "footer", "form", "frame", "frameset", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "iframe", "img", "input", "isindex", "li", "link", "listing", "main", "marquee", "menu", "menuitem", "meta", "nav", "noembed", "noframes", "noscript", "object", "ol", "p", "param", "plaintext", "pre", "script", "section", "select", "source", "style", "summary", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "title", "tr", "track", "ul", "wbr", "xmp"];
@@ -8058,7 +8058,7 @@ var require_react_dom_development = __commonJS({
             listItemTagAutoclosing: null,
             dlItemTagAutoclosing: null
           };
-          updatedAncestorInfo = function(oldInfo, tag) {
+          updatedAncestorInfo = function (oldInfo, tag) {
             var ancestorInfo = assign({}, oldInfo || emptyAncestorInfo);
             var info = {
               tag
@@ -8099,7 +8099,7 @@ var require_react_dom_development = __commonJS({
             }
             return ancestorInfo;
           };
-          var isTagValidWithParent = function(tag, parentTag) {
+          var isTagValidWithParent = function (tag, parentTag) {
             switch (parentTag) {
               case "select":
                 return tag === "option" || tag === "optgroup" || tag === "#text";
@@ -8155,7 +8155,7 @@ var require_react_dom_development = __commonJS({
             }
             return true;
           };
-          var findInvalidAncestorForTag = function(tag, ancestorInfo) {
+          var findInvalidAncestorForTag = function (tag, ancestorInfo) {
             switch (tag) {
               case "address":
               case "article":
@@ -8210,7 +8210,7 @@ var require_react_dom_development = __commonJS({
             return null;
           };
           var didWarn$1 = {};
-          validateDOMNesting = function(childTag, childText, ancestorInfo) {
+          validateDOMNesting = function (childTag, childText, ancestorInfo) {
             ancestorInfo = ancestorInfo || emptyAncestorInfo;
             var parentInfo = ancestorInfo.current;
             var parentTag = parentInfo && parentInfo.tag;
@@ -8387,11 +8387,11 @@ var require_react_dom_development = __commonJS({
         var cancelTimeout = typeof clearTimeout === "function" ? clearTimeout : void 0;
         var noTimeout = -1;
         var localPromise = typeof Promise === "function" ? Promise : void 0;
-        var scheduleMicrotask = typeof queueMicrotask === "function" ? queueMicrotask : typeof localPromise !== "undefined" ? function(callback) {
+        var scheduleMicrotask = typeof queueMicrotask === "function" ? queueMicrotask : typeof localPromise !== "undefined" ? function (callback) {
           return localPromise.resolve(null).then(callback).catch(handleErrorInNextTick);
         } : scheduleTimeout;
         function handleErrorInNextTick(error2) {
-          setTimeout(function() {
+          setTimeout(function () {
             throw error2;
           });
         }
@@ -8679,7 +8679,7 @@ var require_react_dom_development = __commonJS({
           {
             if (instance.nodeType === ELEMENT_NODE) {
               warnForDeletedHydratableElement(parentContainer, instance);
-            } else if (instance.nodeType === COMMENT_NODE) ;
+            } else if (instance.nodeType === COMMENT_NODE);
             else {
               warnForDeletedHydratableText(parentContainer, instance);
             }
@@ -8691,7 +8691,7 @@ var require_react_dom_development = __commonJS({
             if (parentNode !== null) {
               if (instance.nodeType === ELEMENT_NODE) {
                 warnForDeletedHydratableElement(parentNode, instance);
-              } else if (instance.nodeType === COMMENT_NODE) ;
+              } else if (instance.nodeType === COMMENT_NODE);
               else {
                 warnForDeletedHydratableText(parentNode, instance);
               }
@@ -8703,7 +8703,7 @@ var require_react_dom_development = __commonJS({
             if (isConcurrentMode || parentProps[SUPPRESS_HYDRATION_WARNING$1] !== true) {
               if (instance.nodeType === ELEMENT_NODE) {
                 warnForDeletedHydratableElement(parentInstance, instance);
-              } else if (instance.nodeType === COMMENT_NODE) ;
+              } else if (instance.nodeType === COMMENT_NODE);
               else {
                 warnForDeletedHydratableText(parentInstance, instance);
               }
@@ -9645,19 +9645,19 @@ var require_react_dom_development = __commonJS({
           return ReactCurrentBatchConfig$1.transition;
         }
         var ReactStrictModeWarnings = {
-          recordUnsafeLifecycleWarnings: function(fiber, instance) {
+          recordUnsafeLifecycleWarnings: function (fiber, instance) {
           },
-          flushPendingUnsafeLifecycleWarnings: function() {
+          flushPendingUnsafeLifecycleWarnings: function () {
           },
-          recordLegacyContextWarning: function(fiber, instance) {
+          recordLegacyContextWarning: function (fiber, instance) {
           },
-          flushLegacyContextWarning: function() {
+          flushLegacyContextWarning: function () {
           },
-          discardPendingWarnings: function() {
+          discardPendingWarnings: function () {
           }
         };
         {
-          var findStrictRoot = function(fiber) {
+          var findStrictRoot = function (fiber) {
             var maybeStrictRoot = null;
             var node = fiber;
             while (node !== null) {
@@ -9668,9 +9668,9 @@ var require_react_dom_development = __commonJS({
             }
             return maybeStrictRoot;
           };
-          var setToSortedString = function(set2) {
+          var setToSortedString = function (set2) {
             var array = [];
-            set2.forEach(function(value) {
+            set2.forEach(function (value) {
               array.push(value);
             });
             return array.sort().join(", ");
@@ -9682,12 +9682,12 @@ var require_react_dom_development = __commonJS({
           var pendingComponentWillUpdateWarnings = [];
           var pendingUNSAFE_ComponentWillUpdateWarnings = [];
           var didWarnAboutUnsafeLifecycles = /* @__PURE__ */ new Set();
-          ReactStrictModeWarnings.recordUnsafeLifecycleWarnings = function(fiber, instance) {
+          ReactStrictModeWarnings.recordUnsafeLifecycleWarnings = function (fiber, instance) {
             if (didWarnAboutUnsafeLifecycles.has(fiber.type)) {
               return;
             }
             if (typeof instance.componentWillMount === "function" && // Don't warn about react-lifecycles-compat polyfilled components.
-            instance.componentWillMount.__suppressDeprecationWarning !== true) {
+              instance.componentWillMount.__suppressDeprecationWarning !== true) {
               pendingComponentWillMountWarnings.push(fiber);
             }
             if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillMount === "function") {
@@ -9706,10 +9706,10 @@ var require_react_dom_development = __commonJS({
               pendingUNSAFE_ComponentWillUpdateWarnings.push(fiber);
             }
           };
-          ReactStrictModeWarnings.flushPendingUnsafeLifecycleWarnings = function() {
+          ReactStrictModeWarnings.flushPendingUnsafeLifecycleWarnings = function () {
             var componentWillMountUniqueNames = /* @__PURE__ */ new Set();
             if (pendingComponentWillMountWarnings.length > 0) {
-              pendingComponentWillMountWarnings.forEach(function(fiber) {
+              pendingComponentWillMountWarnings.forEach(function (fiber) {
                 componentWillMountUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9717,7 +9717,7 @@ var require_react_dom_development = __commonJS({
             }
             var UNSAFE_componentWillMountUniqueNames = /* @__PURE__ */ new Set();
             if (pendingUNSAFE_ComponentWillMountWarnings.length > 0) {
-              pendingUNSAFE_ComponentWillMountWarnings.forEach(function(fiber) {
+              pendingUNSAFE_ComponentWillMountWarnings.forEach(function (fiber) {
                 UNSAFE_componentWillMountUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9725,7 +9725,7 @@ var require_react_dom_development = __commonJS({
             }
             var componentWillReceivePropsUniqueNames = /* @__PURE__ */ new Set();
             if (pendingComponentWillReceivePropsWarnings.length > 0) {
-              pendingComponentWillReceivePropsWarnings.forEach(function(fiber) {
+              pendingComponentWillReceivePropsWarnings.forEach(function (fiber) {
                 componentWillReceivePropsUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9733,7 +9733,7 @@ var require_react_dom_development = __commonJS({
             }
             var UNSAFE_componentWillReceivePropsUniqueNames = /* @__PURE__ */ new Set();
             if (pendingUNSAFE_ComponentWillReceivePropsWarnings.length > 0) {
-              pendingUNSAFE_ComponentWillReceivePropsWarnings.forEach(function(fiber) {
+              pendingUNSAFE_ComponentWillReceivePropsWarnings.forEach(function (fiber) {
                 UNSAFE_componentWillReceivePropsUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9741,7 +9741,7 @@ var require_react_dom_development = __commonJS({
             }
             var componentWillUpdateUniqueNames = /* @__PURE__ */ new Set();
             if (pendingComponentWillUpdateWarnings.length > 0) {
-              pendingComponentWillUpdateWarnings.forEach(function(fiber) {
+              pendingComponentWillUpdateWarnings.forEach(function (fiber) {
                 componentWillUpdateUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9749,7 +9749,7 @@ var require_react_dom_development = __commonJS({
             }
             var UNSAFE_componentWillUpdateUniqueNames = /* @__PURE__ */ new Set();
             if (pendingUNSAFE_ComponentWillUpdateWarnings.length > 0) {
-              pendingUNSAFE_ComponentWillUpdateWarnings.forEach(function(fiber) {
+              pendingUNSAFE_ComponentWillUpdateWarnings.forEach(function (fiber) {
                 UNSAFE_componentWillUpdateUniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutUnsafeLifecycles.add(fiber.type);
               });
@@ -9782,7 +9782,7 @@ var require_react_dom_development = __commonJS({
           };
           var pendingLegacyContextWarning = /* @__PURE__ */ new Map();
           var didWarnAboutLegacyContext = /* @__PURE__ */ new Set();
-          ReactStrictModeWarnings.recordLegacyContextWarning = function(fiber, instance) {
+          ReactStrictModeWarnings.recordLegacyContextWarning = function (fiber, instance) {
             var strictRoot = findStrictRoot(fiber);
             if (strictRoot === null) {
               error("Expected to find a StrictMode component in a strict mode tree. This error is likely caused by a bug in React. Please file an issue.");
@@ -9800,14 +9800,14 @@ var require_react_dom_development = __commonJS({
               warningsForRoot.push(fiber);
             }
           };
-          ReactStrictModeWarnings.flushLegacyContextWarning = function() {
-            pendingLegacyContextWarning.forEach(function(fiberArray, strictRoot) {
+          ReactStrictModeWarnings.flushLegacyContextWarning = function () {
+            pendingLegacyContextWarning.forEach(function (fiberArray, strictRoot) {
               if (fiberArray.length === 0) {
                 return;
               }
               var firstFiber = fiberArray[0];
               var uniqueNames = /* @__PURE__ */ new Set();
-              fiberArray.forEach(function(fiber) {
+              fiberArray.forEach(function (fiber) {
                 uniqueNames.add(getComponentNameFromFiber(fiber) || "Component");
                 didWarnAboutLegacyContext.add(fiber.type);
               });
@@ -9820,7 +9820,7 @@ var require_react_dom_development = __commonJS({
               }
             });
           };
-          ReactStrictModeWarnings.discardPendingWarnings = function() {
+          ReactStrictModeWarnings.discardPendingWarnings = function () {
             pendingComponentWillMountWarnings = [];
             pendingUNSAFE_ComponentWillMountWarnings = [];
             pendingComponentWillReceivePropsWarnings = [];
@@ -9835,7 +9835,7 @@ var require_react_dom_development = __commonJS({
         var didWarnAboutStringRefs;
         var ownerHasKeyUseWarning;
         var ownerHasFunctionTypeWarning;
-        var warnForMissingKey = function(child, returnFiber) {
+        var warnForMissingKey = function (child, returnFiber) {
         };
         {
           didWarnAboutMaps = false;
@@ -9843,7 +9843,7 @@ var require_react_dom_development = __commonJS({
           didWarnAboutStringRefs = {};
           ownerHasKeyUseWarning = {};
           ownerHasFunctionTypeWarning = {};
-          warnForMissingKey = function(child, returnFiber) {
+          warnForMissingKey = function (child, returnFiber) {
             if (child === null || typeof child !== "object") {
               return;
             }
@@ -9870,12 +9870,12 @@ var require_react_dom_development = __commonJS({
           if (mixedRef !== null && typeof mixedRef !== "function" && typeof mixedRef !== "object") {
             {
               if ((returnFiber.mode & StrictLegacyMode || warnAboutStringRefs) && // We warn in ReactElement.js if owner and self are equal for string refs
-              // because these cannot be automatically converted to an arrow function
-              // using a codemod. Therefore, we don't have to warn about string refs again.
-              !(element._owner && element._self && element._owner.stateNode !== element._self) && // Will already throw with "Function components cannot have string refs"
-              !(element._owner && element._owner.tag !== ClassComponent) && // Will already warn with "Function components cannot be given refs"
-              !(typeof element.type === "function" && !isReactClass(element.type)) && // Will already throw with "Element ref was specified as a string (someStringRef) but no owner was set"
-              element._owner) {
+                // because these cannot be automatically converted to an arrow function
+                // using a codemod. Therefore, we don't have to warn about string refs again.
+                !(element._owner && element._self && element._owner.stateNode !== element._self) && // Will already throw with "Function components cannot have string refs"
+                !(element._owner && element._owner.tag !== ClassComponent) && // Will already warn with "Function components cannot be given refs"
+                !(typeof element.type === "function" && !isReactClass(element.type)) && // Will already throw with "Element ref was specified as a string (someStringRef) but no owner was set"
+                element._owner) {
                 var componentName = getComponentNameFromFiber(returnFiber) || "Component";
                 if (!didWarnAboutStringRefs[componentName]) {
                   {
@@ -9906,7 +9906,7 @@ var require_react_dom_development = __commonJS({
               if (current2 !== null && current2.ref !== null && typeof current2.ref === "function" && current2.ref._stringRef === stringRef) {
                 return current2.ref;
               }
-              var ref = function(value) {
+              var ref = function (value) {
                 var refs = resolvedInst.refs;
                 if (value === null) {
                   delete refs[stringRef];
@@ -10033,11 +10033,11 @@ var require_react_dom_development = __commonJS({
             }
             if (current2 !== null) {
               if (current2.elementType === elementType || // Keep this check inline so it only runs on the false path:
-              isCompatibleFamilyForHotReloading(current2, element) || // Lazy types should reconcile their resolved type.
-              // We need to do this after the Hot Reloading check above,
-              // because hot reloading has different semantics than prod because
-              // it doesn't resuspend. So we can't let the call below suspend.
-              typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === current2.type) {
+                isCompatibleFamilyForHotReloading(current2, element) || // Lazy types should reconcile their resolved type.
+                // We need to do this after the Hot Reloading check above,
+                // because hot reloading has different semantics than prod because
+                // it doesn't resuspend. So we can't let the call below suspend.
+                typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === current2.type) {
                 var existing = useFiber(current2, element.props);
                 existing.ref = coerceRef(returnFiber, current2, element);
                 existing.return = returnFiber;
@@ -10214,7 +10214,7 @@ var require_react_dom_development = __commonJS({
                     knownKeys.add(key);
                     break;
                   }
-                  error("Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.", key);
+                  error("Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted - the behavior is unsupported and could change in a future version.", key);
                   break;
                 case REACT_LAZY_TYPE:
                   var payload = child._payload;
@@ -10314,7 +10314,7 @@ var require_react_dom_development = __commonJS({
               }
             }
             if (shouldTrackSideEffects) {
-              existingChildren.forEach(function(child2) {
+              existingChildren.forEach(function (child2) {
                 return deleteChild(returnFiber, child2);
               });
             }
@@ -10331,7 +10331,7 @@ var require_react_dom_development = __commonJS({
             }
             {
               if (typeof Symbol === "function" && // $FlowFixMe Flow doesn't know about toStringTag
-              newChildrenIterable[Symbol.toStringTag] === "Generator") {
+                newChildrenIterable[Symbol.toStringTag] === "Generator") {
                 if (!didWarnAboutGenerators) {
                   error("Using Generators as children is unsupported and will likely yield unexpected results because enumerating a generator mutates it. You may convert it to an array with `Array.from()` or the `[...spread]` operator before rendering. Keep in mind you might need to polyfill these features for older browsers.");
                 }
@@ -10439,7 +10439,7 @@ var require_react_dom_development = __commonJS({
               }
             }
             if (shouldTrackSideEffects) {
-              existingChildren.forEach(function(child2) {
+              existingChildren.forEach(function (child2) {
                 return deleteChild(returnFiber, child2);
               });
             }
@@ -10480,11 +10480,11 @@ var require_react_dom_development = __commonJS({
                   }
                 } else {
                   if (child.elementType === elementType || // Keep this check inline so it only runs on the false path:
-                  isCompatibleFamilyForHotReloading(child, element) || // Lazy types should reconcile their resolved type.
-                  // We need to do this after the Hot Reloading check above,
-                  // because hot reloading has different semantics than prod because
-                  // it doesn't resuspend. So we can't let the call below suspend.
-                  typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === child.type) {
+                    isCompatibleFamilyForHotReloading(child, element) || // Lazy types should reconcile their resolved type.
+                    // We need to do this after the Hot Reloading check above,
+                    // because hot reloading has different semantics than prod because
+                    // it doesn't resuspend. So we can't let the call below suspend.
+                    typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === child.type) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var _existing = useFiber(child, element.props);
                     _existing.ref = coerceRef(returnFiber, child, element);
@@ -10694,7 +10694,7 @@ var require_react_dom_development = __commonJS({
                     var update = createUpdate(NoTimestamp, lane);
                     update.tag = ForceUpdate;
                     var updateQueue = fiber.updateQueue;
-                    if (updateQueue === null) ;
+                    if (updateQueue === null);
                     else {
                       var sharedQueue = updateQueue.shared;
                       var pending = sharedQueue.pending;
@@ -10780,7 +10780,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var value = context._currentValue;
-          if (lastFullyObservedContext === context) ;
+          if (lastFullyObservedContext === context);
           else {
             var contextItem = {
               context,
@@ -11189,8 +11189,8 @@ var require_react_dom_development = __commonJS({
                 newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance);
                 var callback = update.callback;
                 if (callback !== null && // If the update was already committed, we should not queue its
-                // callback again.
-                update.lane !== NoLane) {
+                  // callback again.
+                  update.lane !== NoLane) {
                   workInProgress2.flags |= Callback;
                   var effects = queue.effects;
                   if (effects === null) {
@@ -11361,8 +11361,8 @@ var require_react_dom_development = __commonJS({
                 }
               }
             } else if (node.tag === SuspenseListComponent && // revealOrder undefined can't be trusted because it don't
-            // keep track of whether it suspended or not.
-            node.memoizedProps.revealOrder !== void 0) {
+              // keep track of whether it suspended or not.
+              node.memoizedProps.revealOrder !== void 0) {
               var didSuspend = (node.flags & DidCapture) !== NoFlags;
               if (didSuspend) {
                 return node;
@@ -11580,11 +11580,11 @@ var require_react_dom_development = __commonJS({
             hookTypesDev = null;
             hookTypesUpdateIndexDev = -1;
             if (current2 !== null && (current2.flags & StaticMask) !== (workInProgress2.flags & StaticMask) && // Disable this warning in legacy mode, because legacy Suspense is weird
-            // and creates false positives. To make this work in legacy mode, we'd
-            // need to mark fibers that commit in an incomplete state, somehow. For
-            // now I'll disable the warning that most of the bugs that would trigger
-            // it are either exclusive to concurrent mode or exist in both.
-            (current2.mode & ConcurrentMode) !== NoMode) {
+              // and creates false positives. To make this work in legacy mode, we'd
+              // need to mark fibers that commit in an incomplete state, somehow. For
+              // now I'll disable the warning that most of the bugs that would trigger
+              // it are either exclusive to concurrent mode or exist in both.
+              (current2.mode & ConcurrentMode) !== NoMode) {
               error("Internal React error: Expected static flag was missing. Please notify the React team.");
             }
           }
@@ -11932,8 +11932,8 @@ var require_react_dom_development = __commonJS({
           var inst = hook.queue;
           updateEffect(subscribeToStore.bind(null, fiber, inst, subscribe), [subscribe]);
           if (inst.getSnapshot !== getSnapshot || snapshotChanged || // Check if the susbcribe function changed. We can save some memory by
-          // checking whether we scheduled a subscription effect above.
-          workInProgressHook !== null && workInProgressHook.memoizedState.tag & HasEffect) {
+            // checking whether we scheduled a subscription effect above.
+            workInProgressHook !== null && workInProgressHook.memoizedState.tag & HasEffect) {
             fiber.flags |= Passive;
             pushEffect(HasEffect | Passive$1, updateStoreInstance.bind(null, fiber, inst, nextSnapshot, getSnapshot), void 0, null);
             var root2 = getWorkInProgressRoot();
@@ -11974,7 +11974,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         function subscribeToStore(fiber, inst, subscribe) {
-          var handleStoreChange = function() {
+          var handleStoreChange = function () {
             if (checkIfSnapshotChanged(inst)) {
               forceStoreRerender(fiber);
             }
@@ -12120,7 +12120,7 @@ var require_react_dom_development = __commonJS({
             var refCallback = ref;
             var _inst = create();
             refCallback(_inst);
-            return function() {
+            return function () {
               refCallback(null);
             };
           } else if (ref !== null && ref !== void 0) {
@@ -12132,7 +12132,7 @@ var require_react_dom_development = __commonJS({
             }
             var _inst2 = create();
             refObject.current = _inst2;
-            return function() {
+            return function () {
               refObject.current = null;
             };
           }
@@ -12461,52 +12461,52 @@ var require_react_dom_development = __commonJS({
         var InvalidNestedHooksDispatcherOnUpdateInDEV = null;
         var InvalidNestedHooksDispatcherOnRerenderInDEV = null;
         {
-          var warnInvalidContextAccess = function() {
+          var warnInvalidContextAccess = function () {
             error("Context can only be read while React is rendering. In classes, you can read it in the render method or getDerivedStateFromProps. In function components, you can read it directly in the function body, but not inside Hooks like useReducer() or useMemo().");
           };
-          var warnInvalidHookAccess = function() {
+          var warnInvalidHookAccess = function () {
             error("Do not call Hooks inside useEffect(...), useMemo(...), or other built-in Hooks. You can only call Hooks at the top level of your React function. For more information, see https://reactjs.org/link/rules-of-hooks");
           };
           HooksDispatcherOnMountInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
               return mountCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               mountHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
               return mountEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
               return mountImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
               return mountInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
               return mountLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               mountHookTypesDev();
               checkDepsAreArrayDev(deps);
@@ -12518,7 +12518,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               mountHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12529,12 +12529,12 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               mountHookTypesDev();
               return mountRef(initialValue);
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               mountHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12545,32 +12545,32 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               mountHookTypesDev();
               return mountDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               mountHookTypesDev();
               return mountDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               mountHookTypesDev();
               return mountTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               mountHookTypesDev();
               return mountMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               mountHookTypesDev();
               return mountSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               mountHookTypesDev();
               return mountId();
@@ -12578,40 +12578,40 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           HooksDispatcherOnMountWithHookTypesInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               updateHookTypesDev();
               return mountCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               updateHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               updateHookTypesDev();
               return mountEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               updateHookTypesDev();
               return mountImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               updateHookTypesDev();
               return mountInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               updateHookTypesDev();
               return mountLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12622,7 +12622,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12633,12 +12633,12 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               updateHookTypesDev();
               return mountRef(initialValue);
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12649,32 +12649,32 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               updateHookTypesDev();
               return mountDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               updateHookTypesDev();
               return mountDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               updateHookTypesDev();
               return mountTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               updateHookTypesDev();
               return mountMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               updateHookTypesDev();
               return mountSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               updateHookTypesDev();
               return mountId();
@@ -12682,40 +12682,40 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           HooksDispatcherOnUpdateInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               updateHookTypesDev();
               return updateCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               updateHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               updateHookTypesDev();
               return updateEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               updateHookTypesDev();
               return updateImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               updateHookTypesDev();
               return updateInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               updateHookTypesDev();
               return updateLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12726,7 +12726,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12737,12 +12737,12 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               updateHookTypesDev();
               return updateRef();
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12753,32 +12753,32 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               updateHookTypesDev();
               return updateDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               updateHookTypesDev();
               return updateDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               updateHookTypesDev();
               return updateTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               updateHookTypesDev();
               return updateMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               updateHookTypesDev();
               return updateSyncExternalStore(subscribe, getSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               updateHookTypesDev();
               return updateId();
@@ -12786,40 +12786,40 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           HooksDispatcherOnRerenderInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               updateHookTypesDev();
               return updateCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               updateHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               updateHookTypesDev();
               return updateEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               updateHookTypesDev();
               return updateImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               updateHookTypesDev();
               return updateInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               updateHookTypesDev();
               return updateLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12830,7 +12830,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12841,12 +12841,12 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               updateHookTypesDev();
               return updateRef();
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               updateHookTypesDev();
               var prevDispatcher = ReactCurrentDispatcher$1.current;
@@ -12857,32 +12857,32 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               updateHookTypesDev();
               return updateDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               updateHookTypesDev();
               return rerenderDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               updateHookTypesDev();
               return rerenderTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               updateHookTypesDev();
               return updateMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               updateHookTypesDev();
               return updateSyncExternalStore(subscribe, getSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               updateHookTypesDev();
               return updateId();
@@ -12890,47 +12890,47 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           InvalidNestedHooksDispatcherOnMountInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               warnInvalidContextAccess();
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               warnInvalidHookAccess();
               mountHookTypesDev();
@@ -12942,7 +12942,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               warnInvalidHookAccess();
               mountHookTypesDev();
@@ -12954,13 +12954,13 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountRef(initialValue);
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               warnInvalidHookAccess();
               mountHookTypesDev();
@@ -12972,37 +12972,37 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               warnInvalidHookAccess();
               mountHookTypesDev();
               return mountSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               warnInvalidHookAccess();
               mountHookTypesDev();
@@ -13011,47 +13011,47 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           InvalidNestedHooksDispatcherOnUpdateInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               warnInvalidContextAccess();
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13063,7 +13063,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13075,13 +13075,13 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateRef();
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13093,37 +13093,37 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateSyncExternalStore(subscribe, getSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13132,47 +13132,47 @@ var require_react_dom_development = __commonJS({
             unstable_isNewReconciler: enableNewReconciler
           };
           InvalidNestedHooksDispatcherOnRerenderInDEV = {
-            readContext: function(context) {
+            readContext: function (context) {
               warnInvalidContextAccess();
               return readContext(context);
             },
-            useCallback: function(callback, deps) {
+            useCallback: function (callback, deps) {
               currentHookNameInDev = "useCallback";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateCallback(callback, deps);
             },
-            useContext: function(context) {
+            useContext: function (context) {
               currentHookNameInDev = "useContext";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return readContext(context);
             },
-            useEffect: function(create, deps) {
+            useEffect: function (create, deps) {
               currentHookNameInDev = "useEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateEffect(create, deps);
             },
-            useImperativeHandle: function(ref, create, deps) {
+            useImperativeHandle: function (ref, create, deps) {
               currentHookNameInDev = "useImperativeHandle";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateImperativeHandle(ref, create, deps);
             },
-            useInsertionEffect: function(create, deps) {
+            useInsertionEffect: function (create, deps) {
               currentHookNameInDev = "useInsertionEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateInsertionEffect(create, deps);
             },
-            useLayoutEffect: function(create, deps) {
+            useLayoutEffect: function (create, deps) {
               currentHookNameInDev = "useLayoutEffect";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateLayoutEffect(create, deps);
             },
-            useMemo: function(create, deps) {
+            useMemo: function (create, deps) {
               currentHookNameInDev = "useMemo";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13184,7 +13184,7 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useReducer: function(reducer, initialArg, init) {
+            useReducer: function (reducer, initialArg, init) {
               currentHookNameInDev = "useReducer";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13196,13 +13196,13 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useRef: function(initialValue) {
+            useRef: function (initialValue) {
               currentHookNameInDev = "useRef";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateRef();
             },
-            useState: function(initialState) {
+            useState: function (initialState) {
               currentHookNameInDev = "useState";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13214,37 +13214,37 @@ var require_react_dom_development = __commonJS({
                 ReactCurrentDispatcher$1.current = prevDispatcher;
               }
             },
-            useDebugValue: function(value, formatterFn) {
+            useDebugValue: function (value, formatterFn) {
               currentHookNameInDev = "useDebugValue";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateDebugValue();
             },
-            useDeferredValue: function(value) {
+            useDeferredValue: function (value) {
               currentHookNameInDev = "useDeferredValue";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return rerenderDeferredValue(value);
             },
-            useTransition: function() {
+            useTransition: function () {
               currentHookNameInDev = "useTransition";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return rerenderTransition();
             },
-            useMutableSource: function(source, getSnapshot, subscribe) {
+            useMutableSource: function (source, getSnapshot, subscribe) {
               currentHookNameInDev = "useMutableSource";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateMutableSource();
             },
-            useSyncExternalStore: function(subscribe, getSnapshot, getServerSnapshot) {
+            useSyncExternalStore: function (subscribe, getSnapshot, getServerSnapshot) {
               currentHookNameInDev = "useSyncExternalStore";
               warnInvalidHookAccess();
               updateHookTypesDev();
               return updateSyncExternalStore(subscribe, getSnapshot);
             },
-            useId: function() {
+            useId: function () {
               currentHookNameInDev = "useId";
               warnInvalidHookAccess();
               updateHookTypesDev();
@@ -13398,7 +13398,7 @@ var require_react_dom_development = __commonJS({
           didWarnAboutInvalidateContextType = /* @__PURE__ */ new Set();
           didWarnAboutLegacyContext$1 = /* @__PURE__ */ new Set();
           var didWarnOnInvalidCallback = /* @__PURE__ */ new Set();
-          warnOnInvalidCallback = function(callback, callerName) {
+          warnOnInvalidCallback = function (callback, callerName) {
             if (callback === null || typeof callback === "function") {
               return;
             }
@@ -13408,7 +13408,7 @@ var require_react_dom_development = __commonJS({
               error("%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callerName, callback);
             }
           };
-          warnOnUndefinedDerivedState = function(type, partialState) {
+          warnOnUndefinedDerivedState = function (type, partialState) {
             if (partialState === void 0) {
               var componentName = getComponentNameFromType(type) || "Component";
               if (!didWarnAboutUndefinedDerivedState.has(componentName)) {
@@ -13419,7 +13419,7 @@ var require_react_dom_development = __commonJS({
           };
           Object.defineProperty(fakeInternalInstance, "_processChildContext", {
             enumerable: false,
-            value: function() {
+            value: function () {
               throw new Error("_processChildContext is not available in React 16+. This likely means you have multiple copies of React and are attempting to nest a React 15 tree inside a React 16 tree using unstable_renderSubtreeIntoContainer, which isn't supported. Try to make sure you have only one copy of React (and ideally, switch to ReactDOM.createPortal).");
             }
           });
@@ -13448,7 +13448,7 @@ var require_react_dom_development = __commonJS({
         }
         var classComponentUpdater = {
           isMounted,
-          enqueueSetState: function(inst, payload, callback) {
+          enqueueSetState: function (inst, payload, callback) {
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
@@ -13469,7 +13469,7 @@ var require_react_dom_development = __commonJS({
               markStateUpdateScheduled(fiber, lane);
             }
           },
-          enqueueReplaceState: function(inst, payload, callback) {
+          enqueueReplaceState: function (inst, payload, callback) {
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
@@ -13491,7 +13491,7 @@ var require_react_dom_development = __commonJS({
               markStateUpdateScheduled(fiber, lane);
             }
           },
-          enqueueForceUpdate: function(inst, callback) {
+          enqueueForceUpdate: function (inst, callback) {
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
@@ -13563,14 +13563,14 @@ var require_react_dom_development = __commonJS({
             }
             {
               if (ctor.childContextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
-              // this one.
-              (workInProgress2.mode & StrictLegacyMode) === NoMode) {
+                // this one.
+                (workInProgress2.mode & StrictLegacyMode) === NoMode) {
                 didWarnAboutLegacyContext$1.add(ctor);
                 error("%s uses the legacy childContextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() instead\n\n.Learn more about this warning here: https://reactjs.org/link/legacy-context", name);
               }
               if (ctor.contextTypes && !didWarnAboutLegacyContext$1.has(ctor) && // Strict Mode has its own warning for legacy context, so we can skip
-              // this one.
-              (workInProgress2.mode & StrictLegacyMode) === NoMode) {
+                // this one.
+                (workInProgress2.mode & StrictLegacyMode) === NoMode) {
                 didWarnAboutLegacyContext$1.add(ctor);
                 error("%s uses the legacy contextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() with static contextType instead.\n\nLearn more about this warning here: https://reactjs.org/link/legacy-context", name);
               }
@@ -13943,10 +13943,10 @@ var require_react_dom_development = __commonJS({
             newState = workInProgress2.memoizedState;
           }
           var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress2, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
-          // both before and after `shouldComponentUpdate` has been called. Not ideal,
-          // but I'm loath to refactor this function. This only happens for memoized
-          // components so it's not that common.
-          enableLazyContextPropagation;
+            // both before and after `shouldComponentUpdate` has been called. Not ideal,
+            // but I'm loath to refactor this function. This only happens for memoized
+            // components so it's not that common.
+            enableLazyContextPropagation;
           if (shouldUpdate) {
             if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === "function" || typeof instance.componentWillUpdate === "function")) {
               if (typeof instance.componentWillUpdate === "function") {
@@ -14032,7 +14032,7 @@ var require_react_dom_development = __commonJS({
               console["error"](error2);
             }
           } catch (e) {
-            setTimeout(function() {
+            setTimeout(function () {
               throw e;
             });
           }
@@ -14045,7 +14045,7 @@ var require_react_dom_development = __commonJS({
             element: null
           };
           var error2 = errorInfo.value;
-          update.callback = function() {
+          update.callback = function () {
             onUncaughtError(error2);
             logCapturedError(fiber, errorInfo);
           };
@@ -14057,10 +14057,10 @@ var require_react_dom_development = __commonJS({
           var getDerivedStateFromError = fiber.type.getDerivedStateFromError;
           if (typeof getDerivedStateFromError === "function") {
             var error$1 = errorInfo.value;
-            update.payload = function() {
+            update.payload = function () {
               return getDerivedStateFromError(error$1);
             };
-            update.callback = function() {
+            update.callback = function () {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -14351,7 +14351,7 @@ var require_react_dom_development = __commonJS({
           if (current2 === null) {
             var type = Component.type;
             if (isSimpleFunctionComponent(type) && Component.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
-            Component.defaultProps === void 0) {
+              Component.defaultProps === void 0) {
               var resolvedType = type;
               {
                 resolvedType = resolveFunctionForHotReloading(type);
@@ -14447,7 +14447,7 @@ var require_react_dom_development = __commonJS({
           if (current2 !== null) {
             var prevProps = current2.memoizedProps;
             if (shallowEqual(prevProps, nextProps) && current2.ref === workInProgress2.ref && // Prevent bailout if the implementation changed due to hot reload.
-            workInProgress2.type === current2.type) {
+              workInProgress2.type === current2.type) {
               didReceiveUpdate = false;
               workInProgress2.pendingProps = nextProps = prevProps;
               if (!checkScheduledUpdateOrContext(current2, renderLanes2)) {
@@ -15305,7 +15305,7 @@ var require_react_dom_development = __commonJS({
                 workInProgress2,
                 renderLanes2,
                 // TODO: When we delete legacy mode, we should make this error argument
-                // required — every concurrent mode path that causes hydration to
+                // required - every concurrent mode path that causes hydration to
                 // de-opt to client rendering should have an error message.
                 null
               );
@@ -15882,13 +15882,13 @@ var require_react_dom_development = __commonJS({
             var oldProps = current2.memoizedProps;
             var newProps = workInProgress2.pendingProps;
             if (oldProps !== newProps || hasContextChanged() || // Force a re-render if the implementation changed due to hot reload:
-            workInProgress2.type !== current2.type) {
+              workInProgress2.type !== current2.type) {
               didReceiveUpdate = true;
             } else {
               var hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(current2, renderLanes2);
               if (!hasScheduledUpdateOrContext && // If this is the second pass of an error or suspense boundary, there
-              // may not be work scheduled on `current`, so we check for this flag.
-              (workInProgress2.flags & DidCapture) === NoFlags) {
+                // may not be work scheduled on `current`, so we check for this flag.
+                (workInProgress2.flags & DidCapture) === NoFlags) {
                 didReceiveUpdate = false;
                 return attemptEarlyBailoutIfNoScheduledUpdate(current2, workInProgress2, renderLanes2);
               }
@@ -16009,12 +16009,12 @@ var require_react_dom_development = __commonJS({
         var updateHostComponent$1;
         var updateHostText$1;
         {
-          appendAllChildren = function(parent, workInProgress2, needsVisibilityToggle, isHidden) {
+          appendAllChildren = function (parent, workInProgress2, needsVisibilityToggle, isHidden) {
             var node = workInProgress2.child;
             while (node !== null) {
               if (node.tag === HostComponent || node.tag === HostText) {
                 appendInitialChild(parent, node.stateNode);
-              } else if (node.tag === HostPortal) ;
+              } else if (node.tag === HostPortal);
               else if (node.child !== null) {
                 node.child.return = node;
                 node = node.child;
@@ -16033,9 +16033,9 @@ var require_react_dom_development = __commonJS({
               node = node.sibling;
             }
           };
-          updateHostContainer = function(current2, workInProgress2) {
+          updateHostContainer = function (current2, workInProgress2) {
           };
-          updateHostComponent$1 = function(current2, workInProgress2, type, newProps, rootContainerInstance) {
+          updateHostComponent$1 = function (current2, workInProgress2, type, newProps, rootContainerInstance) {
             var oldProps = current2.memoizedProps;
             if (oldProps === newProps) {
               return;
@@ -16048,7 +16048,7 @@ var require_react_dom_development = __commonJS({
               markUpdate(workInProgress2);
             }
           };
-          updateHostText$1 = function(current2, workInProgress2, oldText, newText) {
+          updateHostText$1 = function (current2, workInProgress2, oldText, newText) {
             if (oldText !== newText) {
               markUpdate(workInProgress2);
             }
@@ -16510,8 +16510,8 @@ var require_react_dom_development = __commonJS({
               if (current2 !== null) {
                 var _prevState = current2.memoizedState;
                 var prevIsHidden = _prevState !== null;
-                if (prevIsHidden !== nextIsHidden && // LegacyHidden doesn't do any hiding — it only pre-renders.
-                !enableLegacyHidden) {
+                if (prevIsHidden !== nextIsHidden && // LegacyHidden doesn't do any hiding - it only pre-renders.
+                  !enableLegacyHidden) {
                   workInProgress2.flags |= Visibility;
                 }
               }
@@ -16664,13 +16664,13 @@ var require_react_dom_development = __commonJS({
         var inProgressRoot = null;
         function reportUncaughtErrorInDEV(error2) {
           {
-            invokeGuardedCallback(null, function() {
+            invokeGuardedCallback(null, function () {
               throw error2;
             });
             clearCaughtError();
           }
         }
-        var callComponentWillUnmountWithTimer = function(current2, instance) {
+        var callComponentWillUnmountWithTimer = function (current2, instance) {
           instance.props = current2.memoizedProps;
           instance.state = current2.memoizedState;
           if (current2.mode & ProfileMode) {
@@ -17231,7 +17231,7 @@ var require_react_dom_development = __commonJS({
                     captureCommitPhaseError(finishedWork, finishedWork.return, error2);
                   }
                 }
-              } else if ((node.tag === OffscreenComponent || node.tag === LegacyHiddenComponent) && node.memoizedState !== null && node !== finishedWork) ;
+              } else if ((node.tag === OffscreenComponent || node.tag === LegacyHiddenComponent) && node.memoizedState !== null && node !== finishedWork);
               else if (node.child !== null) {
                 node.child.return = node;
                 node = node.child;
@@ -17408,7 +17408,7 @@ var require_react_dom_development = __commonJS({
             } else {
               appendChildToContainer(parent, stateNode);
             }
-          } else if (tag === HostPortal) ;
+          } else if (tag === HostPortal);
           else {
             var child = node.child;
             if (child !== null) {
@@ -17431,7 +17431,7 @@ var require_react_dom_development = __commonJS({
             } else {
               appendChild(parent, stateNode);
             }
-          } else if (tag === HostPortal) ;
+          } else if (tag === HostPortal);
           else {
             var child = node.child;
             if (child !== null) {
@@ -17636,7 +17636,7 @@ var require_react_dom_development = __commonJS({
             if (retryCache === null) {
               retryCache = finishedWork.stateNode = new PossiblyWeakSet();
             }
-            wakeables.forEach(function(wakeable) {
+            wakeables.forEach(function (wakeable) {
               var retry = resolveRetryWakeable.bind(null, finishedWork, wakeable);
               if (!retryCache.has(wakeable)) {
                 retryCache.add(wakeable);
@@ -18382,7 +18382,7 @@ var require_react_dom_development = __commonJS({
         var commitHooks = [];
         function onCommitRoot$1() {
           {
-            commitHooks.forEach(function(commitHook) {
+            commitHooks.forEach(function (commitHook) {
               return commitHook();
             });
           }
@@ -18559,7 +18559,7 @@ var require_react_dom_development = __commonJS({
             }
             ensureRootIsScheduled(root2, eventTime);
             if (lane === SyncLane && executionContext === NoContext && (fiber.mode & ConcurrentMode) === NoMode && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
-            !ReactCurrentActQueue$1.isBatchingLegacy) {
+              !ReactCurrentActQueue$1.isBatchingLegacy) {
               resetRenderTimer();
               flushSyncCallbacksOnlyInLegacyMode();
             }
@@ -18593,9 +18593,9 @@ var require_react_dom_development = __commonJS({
           var newCallbackPriority = getHighestPriorityLane(nextLanes);
           var existingCallbackPriority = root2.callbackPriority;
           if (existingCallbackPriority === newCallbackPriority && // Special case related to `act`. If the currently scheduled task is a
-          // Scheduler task, rather than an `act` task, cancel it and re-scheduled
-          // on the `act` queue.
-          !(ReactCurrentActQueue$1.current !== null && existingCallbackNode !== fakeActCallbackNode)) {
+            // Scheduler task, rather than an `act` task, cancel it and re-scheduled
+            // on the `act` queue.
+            !(ReactCurrentActQueue$1.current !== null && existingCallbackNode !== fakeActCallbackNode)) {
             {
               if (existingCallbackNode == null && existingCallbackPriority !== SyncLane) {
                 error("Expected scheduled callback to exist. This error is likely caused by a bug in React. Please file an issue.");
@@ -18620,7 +18620,7 @@ var require_react_dom_development = __commonJS({
               if (ReactCurrentActQueue$1.current !== null) {
                 ReactCurrentActQueue$1.current.push(flushSyncCallbacks);
               } else {
-                scheduleMicrotask(function() {
+                scheduleMicrotask(function () {
                   if ((executionContext & (RenderContext | CommitContext)) === NoContext) {
                     flushSyncCallbacks();
                   }
@@ -18761,7 +18761,7 @@ var require_react_dom_development = __commonJS({
             case RootSuspended: {
               markRootSuspended$1(root2, lanes);
               if (includesOnlyRetries(lanes) && // do not delay if we're inside an act() scope
-              !shouldForceFlushFallbacksInDEV()) {
+                !shouldForceFlushFallbacksInDEV()) {
                 var msUntilTimeout = globalMostRecentFallbackTime + FALLBACK_THROTTLE_MS - now();
                 if (msUntilTimeout > 10) {
                   var nextLanes = getNextLanes(root2, NoLanes);
@@ -18912,7 +18912,7 @@ var require_react_dom_development = __commonJS({
           } finally {
             executionContext = prevExecutionContext;
             if (executionContext === NoContext && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
-            !ReactCurrentActQueue$1.isBatchingLegacy) {
+              !ReactCurrentActQueue$1.isBatchingLegacy) {
               resetRenderTimer();
               flushSyncCallbacksOnlyInLegacyMode();
             }
@@ -19322,7 +19322,7 @@ var require_react_dom_development = __commonJS({
             if (!rootDoesHavePassiveEffects) {
               rootDoesHavePassiveEffects = true;
               pendingPassiveTransitions = transitions;
-              scheduleCallback$1(NormalPriority, function() {
+              scheduleCallback$1(NormalPriority, function () {
                 flushPassiveEffects();
                 return null;
               });
@@ -19455,7 +19455,7 @@ var require_react_dom_development = __commonJS({
             pendingPassiveProfilerEffects.push(fiber);
             if (!rootDoesHavePassiveEffects) {
               rootDoesHavePassiveEffects = true;
-              scheduleCallback$1(NormalPriority, function() {
+              scheduleCallback$1(NormalPriority, function () {
                 flushPassiveEffects();
                 return null;
               });
@@ -19745,7 +19745,7 @@ var require_react_dom_development = __commonJS({
         var beginWork$1;
         {
           var dummyFiber = null;
-          beginWork$1 = function(current2, unitOfWork, lanes) {
+          beginWork$1 = function (current2, unitOfWork, lanes) {
             var originalWorkInProgressCopy = assignFiberPropertiesInDEV(dummyFiber, unitOfWork);
             try {
               return beginWork(current2, unitOfWork, lanes);
@@ -19807,7 +19807,7 @@ var require_react_dom_development = __commonJS({
           {
             if (isDevToolsPresent) {
               var memoizedUpdaters = root2.memoizedUpdaters;
-              memoizedUpdaters.forEach(function(schedulingFiber) {
+              memoizedUpdaters.forEach(function (schedulingFiber) {
                 addFiberToLanesMap(root2, schedulingFiber, lanes);
               });
             }
@@ -19880,7 +19880,7 @@ var require_react_dom_development = __commonJS({
         }
         var resolveFamily = null;
         var failedBoundaries = null;
-        var setRefreshHandler = function(handler) {
+        var setRefreshHandler = function (handler) {
           {
             resolveFamily = handler;
           }
@@ -19992,25 +19992,25 @@ var require_react_dom_development = __commonJS({
             failedBoundaries.add(fiber);
           }
         }
-        var scheduleRefresh = function(root2, update) {
+        var scheduleRefresh = function (root2, update) {
           {
             if (resolveFamily === null) {
               return;
             }
             var staleFamilies = update.staleFamilies, updatedFamilies = update.updatedFamilies;
             flushPassiveEffects();
-            flushSync(function() {
+            flushSync(function () {
               scheduleFibersWithFamiliesRecursively(root2.current, updatedFamilies, staleFamilies);
             });
           }
         };
-        var scheduleRoot = function(root2, element) {
+        var scheduleRoot = function (root2, element) {
           {
             if (root2.context !== emptyContextObject) {
               return;
             }
             flushPassiveEffects();
-            flushSync(function() {
+            flushSync(function () {
               updateContainer(element, root2, null, null);
             });
           }
@@ -20070,10 +20070,10 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        var findHostInstancesForRefresh = function(root2, families) {
+        var findHostInstancesForRefresh = function (root2, families) {
           {
             var hostInstances = /* @__PURE__ */ new Set();
-            var types = new Set(families.map(function(family) {
+            var types = new Set(families.map(function (family) {
               return family.current;
             }));
             findHostInstancesForMatchingFibersRecursively(root2.current, types, hostInstances);
@@ -20220,7 +20220,7 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        var createFiber = function(tag, pendingProps, key, mode) {
+        var createFiber = function (tag, pendingProps, key, mode) {
           return new FiberNode(tag, pendingProps, key, mode);
         };
         function shouldConstruct$1(Component) {
@@ -20799,7 +20799,7 @@ var require_react_dom_development = __commonJS({
               break;
             }
             case SuspenseComponent: {
-              flushSync(function() {
+              flushSync(function () {
                 var root3 = enqueueConcurrentRenderForLane(fiber, SyncLane);
                 if (root3 !== null) {
                   var eventTime = requestEventTime();
@@ -20856,13 +20856,13 @@ var require_react_dom_development = __commonJS({
           }
           return hostFiber.stateNode;
         }
-        var shouldErrorImpl = function(fiber) {
+        var shouldErrorImpl = function (fiber) {
           return null;
         };
         function shouldError(fiber) {
           return shouldErrorImpl(fiber);
         }
-        var shouldSuspendImpl = function(fiber) {
+        var shouldSuspendImpl = function (fiber) {
           return false;
         };
         function shouldSuspend(fiber) {
@@ -20878,7 +20878,7 @@ var require_react_dom_development = __commonJS({
         var setErrorHandler = null;
         var setSuspenseHandler = null;
         {
-          var copyWithDeleteImpl = function(obj, path, index2) {
+          var copyWithDeleteImpl = function (obj, path, index2) {
             var key = path[index2];
             var updated = isArray(obj) ? obj.slice() : assign({}, obj);
             if (index2 + 1 === path.length) {
@@ -20892,10 +20892,10 @@ var require_react_dom_development = __commonJS({
             updated[key] = copyWithDeleteImpl(obj[key], path, index2 + 1);
             return updated;
           };
-          var copyWithDelete = function(obj, path) {
+          var copyWithDelete = function (obj, path) {
             return copyWithDeleteImpl(obj, path, 0);
           };
-          var copyWithRenameImpl = function(obj, oldPath, newPath, index2) {
+          var copyWithRenameImpl = function (obj, oldPath, newPath, index2) {
             var oldKey = oldPath[index2];
             var updated = isArray(obj) ? obj.slice() : assign({}, obj);
             if (index2 + 1 === oldPath.length) {
@@ -20917,7 +20917,7 @@ var require_react_dom_development = __commonJS({
             }
             return updated;
           };
-          var copyWithRename = function(obj, oldPath, newPath) {
+          var copyWithRename = function (obj, oldPath, newPath) {
             if (oldPath.length !== newPath.length) {
               warn("copyWithRename() expects paths of the same length");
               return;
@@ -20931,7 +20931,7 @@ var require_react_dom_development = __commonJS({
             }
             return copyWithRenameImpl(obj, oldPath, newPath, 0);
           };
-          var copyWithSetImpl = function(obj, path, index2, value) {
+          var copyWithSetImpl = function (obj, path, index2, value) {
             if (index2 >= path.length) {
               return value;
             }
@@ -20940,10 +20940,10 @@ var require_react_dom_development = __commonJS({
             updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value);
             return updated;
           };
-          var copyWithSet = function(obj, path, value) {
+          var copyWithSet = function (obj, path, value) {
             return copyWithSetImpl(obj, path, 0, value);
           };
-          var findHook = function(fiber, id) {
+          var findHook = function (fiber, id) {
             var currentHook2 = fiber.memoizedState;
             while (currentHook2 !== null && id > 0) {
               currentHook2 = currentHook2.next;
@@ -20951,7 +20951,7 @@ var require_react_dom_development = __commonJS({
             }
             return currentHook2;
           };
-          overrideHookState = function(fiber, id, path, value) {
+          overrideHookState = function (fiber, id, path, value) {
             var hook = findHook(fiber, id);
             if (hook !== null) {
               var newState = copyWithSet(hook.memoizedState, path, value);
@@ -20964,7 +20964,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           };
-          overrideHookStateDeletePath = function(fiber, id, path) {
+          overrideHookStateDeletePath = function (fiber, id, path) {
             var hook = findHook(fiber, id);
             if (hook !== null) {
               var newState = copyWithDelete(hook.memoizedState, path);
@@ -20977,7 +20977,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           };
-          overrideHookStateRenamePath = function(fiber, id, oldPath, newPath) {
+          overrideHookStateRenamePath = function (fiber, id, oldPath, newPath) {
             var hook = findHook(fiber, id);
             if (hook !== null) {
               var newState = copyWithRename(hook.memoizedState, oldPath, newPath);
@@ -20990,7 +20990,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           };
-          overrideProps = function(fiber, path, value) {
+          overrideProps = function (fiber, path, value) {
             fiber.pendingProps = copyWithSet(fiber.memoizedProps, path, value);
             if (fiber.alternate) {
               fiber.alternate.pendingProps = fiber.pendingProps;
@@ -21000,7 +21000,7 @@ var require_react_dom_development = __commonJS({
               scheduleUpdateOnFiber(root2, fiber, SyncLane, NoTimestamp);
             }
           };
-          overridePropsDeletePath = function(fiber, path) {
+          overridePropsDeletePath = function (fiber, path) {
             fiber.pendingProps = copyWithDelete(fiber.memoizedProps, path);
             if (fiber.alternate) {
               fiber.alternate.pendingProps = fiber.pendingProps;
@@ -21010,7 +21010,7 @@ var require_react_dom_development = __commonJS({
               scheduleUpdateOnFiber(root2, fiber, SyncLane, NoTimestamp);
             }
           };
-          overridePropsRenamePath = function(fiber, oldPath, newPath) {
+          overridePropsRenamePath = function (fiber, oldPath, newPath) {
             fiber.pendingProps = copyWithRename(fiber.memoizedProps, oldPath, newPath);
             if (fiber.alternate) {
               fiber.alternate.pendingProps = fiber.pendingProps;
@@ -21020,16 +21020,16 @@ var require_react_dom_development = __commonJS({
               scheduleUpdateOnFiber(root2, fiber, SyncLane, NoTimestamp);
             }
           };
-          scheduleUpdate = function(fiber) {
+          scheduleUpdate = function (fiber) {
             var root2 = enqueueConcurrentRenderForLane(fiber, SyncLane);
             if (root2 !== null) {
               scheduleUpdateOnFiber(root2, fiber, SyncLane, NoTimestamp);
             }
           };
-          setErrorHandler = function(newShouldErrorImpl) {
+          setErrorHandler = function (newShouldErrorImpl) {
             shouldErrorImpl = newShouldErrorImpl;
           };
-          setSuspenseHandler = function(newShouldSuspendImpl) {
+          setSuspenseHandler = function (newShouldSuspendImpl) {
             shouldSuspendImpl = newShouldSuspendImpl;
           };
         }
@@ -21082,13 +21082,13 @@ var require_react_dom_development = __commonJS({
           // In modern browsers, reportError will dispatch an error event,
           // emulating an uncaught JavaScript error.
           reportError
-        ) : function(error2) {
+        ) : function (error2) {
           console["error"](error2);
         };
         function ReactDOMRoot(internalRoot) {
           this._internalRoot = internalRoot;
         }
-        ReactDOMHydrationRoot.prototype.render = ReactDOMRoot.prototype.render = function(children) {
+        ReactDOMHydrationRoot.prototype.render = ReactDOMRoot.prototype.render = function (children) {
           var root2 = this._internalRoot;
           if (root2 === null) {
             throw new Error("Cannot update an unmounted root.");
@@ -21113,7 +21113,7 @@ var require_react_dom_development = __commonJS({
           }
           updateContainer(children, root2, null, null);
         };
-        ReactDOMHydrationRoot.prototype.unmount = ReactDOMRoot.prototype.unmount = function() {
+        ReactDOMHydrationRoot.prototype.unmount = ReactDOMRoot.prototype.unmount = function () {
           {
             if (typeof arguments[0] === "function") {
               error("unmount(...): does not support a callback argument. To execute a side effect after rendering, declare it in a component body with useEffect().");
@@ -21128,7 +21128,7 @@ var require_react_dom_development = __commonJS({
                 error("Attempted to synchronously unmount a root while React was already rendering. React cannot finish unmounting the root until the current render has completed, which may lead to a race condition.");
               }
             }
-            flushSync(function() {
+            flushSync(function () {
               updateContainer(null, root2, null, null);
             });
             unmarkContainerAsRoot(container);
@@ -21243,7 +21243,7 @@ var require_react_dom_development = __commonJS({
         var ReactCurrentOwner$3 = ReactSharedInternals.ReactCurrentOwner;
         var topLevelUpdateWarnings;
         {
-          topLevelUpdateWarnings = function(container) {
+          topLevelUpdateWarnings = function (container) {
             if (container._reactRootContainer && container.nodeType !== COMMENT_NODE) {
               var hostInstance = findHostInstanceWithNoPortals(container._reactRootContainer.current);
               if (hostInstance) {
@@ -21279,7 +21279,7 @@ var require_react_dom_development = __commonJS({
           if (isHydrationContainer) {
             if (typeof callback === "function") {
               var originalCallback = callback;
-              callback = function() {
+              callback = function () {
                 var instance = getPublicRootInstance(root2);
                 originalCallback.call(instance);
               };
@@ -21312,7 +21312,7 @@ var require_react_dom_development = __commonJS({
             }
             if (typeof callback === "function") {
               var _originalCallback = callback;
-              callback = function() {
+              callback = function () {
                 var instance = getPublicRootInstance(_root);
                 _originalCallback.call(instance);
               };
@@ -21334,7 +21334,7 @@ var require_react_dom_development = __commonJS({
             markContainerAsRoot(_root.current, container);
             var _rootContainerElement = container.nodeType === COMMENT_NODE ? container.parentNode : container;
             listenToAllSupportedEvents(_rootContainerElement);
-            flushSync(function() {
+            flushSync(function () {
               updateContainer(initialChildren, _root, parentComponent, callback);
             });
             return _root;
@@ -21360,7 +21360,7 @@ var require_react_dom_development = __commonJS({
             root2 = maybeRoot;
             if (typeof callback === "function") {
               var originalCallback = callback;
-              callback = function() {
+              callback = function () {
                 var instance = getPublicRootInstance(root2);
                 originalCallback.call(instance);
               };
@@ -21462,8 +21462,8 @@ var require_react_dom_development = __commonJS({
                 error("unmountComponentAtNode(): The node you're attempting to unmount was rendered by another copy of React.");
               }
             }
-            flushSync(function() {
-              legacyRenderSubtreeIntoContainer(null, null, container, false, function() {
+            flushSync(function () {
+              legacyRenderSubtreeIntoContainer(null, null, container, false, function () {
                 container._reactRootContainer = null;
                 unmarkContainerAsRoot(container);
               });
@@ -21488,8 +21488,8 @@ var require_react_dom_development = __commonJS({
         setAttemptHydrationAtPriority(runWithPriority);
         {
           if (typeof Map !== "function" || // $FlowIssue Flow incorrectly thinks Map has no prototype
-          Map.prototype == null || typeof Map.prototype.forEach !== "function" || typeof Set !== "function" || // $FlowIssue Flow incorrectly thinks Set has no prototype
-          Set.prototype == null || typeof Set.prototype.clear !== "function" || typeof Set.prototype.forEach !== "function") {
+            Map.prototype == null || typeof Map.prototype.forEach !== "function" || typeof Set !== "function" || // $FlowIssue Flow incorrectly thinks Set has no prototype
+            Set.prototype == null || typeof Set.prototype.clear !== "function" || typeof Set.prototype.forEach !== "function") {
             error("React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills");
           }
         }
@@ -21593,7 +21593,7 @@ var require_client = __commonJS({
       exports.hydrateRoot = m.hydrateRoot;
     } else {
       i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-      exports.createRoot = function(c, o) {
+      exports.createRoot = function (c, o) {
         i.usingClientEntryPoint = true;
         try {
           return m.createRoot(c, o);
@@ -21601,7 +21601,7 @@ var require_client = __commonJS({
           i.usingClientEntryPoint = false;
         }
       };
-      exports.hydrateRoot = function(c, h, o) {
+      exports.hydrateRoot = function (c, h, o) {
         i.usingClientEntryPoint = true;
         try {
           return m.hydrateRoot(c, h, o);

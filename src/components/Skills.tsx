@@ -34,6 +34,7 @@ const toolGroups = [
       'PyTorch', 'TensorFlow', 'Keras', 'OpenCV', 'Scikit-learn',
       'HuggingFace', 'vLLM', 'TensorRT', 'NVIDIA NIM',
       'Local Models', 'Ollama', 'RAG', 'Prompt Engineering',
+      'OCR', 'Translation', 'Small Language Models',
     ],
   },
   {

@@ -3,14 +3,17 @@ import { Menu, X, Moon, Sun } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference or use system preference
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    if (savedTheme === 'light') {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    } else {
+      // Default to dark
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
@@ -51,7 +54,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50">
+    <nav className="fixed w-full bg-purple-100/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-purple-300/60 dark:border-gray-800/50 shadow-md shadow-purple-200/40 dark:shadow-none z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">

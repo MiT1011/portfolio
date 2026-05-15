@@ -396,20 +396,18 @@ const Chatbot: React.FC = () => {
                   className={`flex gap-2.5 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
                 >
                   <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${
-                      msg.role === 'user'
-                        ? 'bg-purple-600 text-white'
-                        : 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400'
-                    }`}
+                    className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user'
+                      ? 'bg-purple-600 text-white'
+                      : 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400'
+                      }`}
                   >
                     {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
                   </div>
                   <div
-                    className={`max-w-[80%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                      msg.role === 'user'
-                        ? 'bg-purple-600 text-white rounded-br-md'
-                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-gray-700 rounded-bl-md'
-                    }`}
+                    className={`max-w-[80%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                      ? 'bg-purple-600 text-white rounded-br-md'
+                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-sm border border-gray-100 dark:border-gray-700 rounded-bl-md'
+                      }`}
                   >
                     {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
                   </div>

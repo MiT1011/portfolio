@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Github, Link, X, Bot, Database, Film, Youtube } from "lucide-react";
+import { Github, Link, X, Bot, Database, Film, Youtube, FileText, Camera, Server } from "lucide-react";
 import { useState } from "react";
 
 interface Project {
@@ -29,14 +29,83 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      title: "Chat with CCTV Cluster",
+      shortDescription: "MeitY-funded AI research - finetuned vision & language models for CCTV data extraction, OCR, translation & conversational querying",
+      description:
+        "An end-to-end intelligent surveillance system that extracts structured data from live CCTV feeds using a finetuned open-weight vision model combined with OCR, translation, and small language models for textual data extraction. The solution architecture was designed as part of an M.Tech thesis and enables conversational querying over multi-camera CCTV data - users can chat with cameras and retrieve live feeds based on keyword search. The system is locally deployed in an organization for a specific operational use case.",
+      bullets: [
+        "Finetuned a compact open-weight vision model on a custom-curated dataset of <strong>50,000 CCTV images</strong>, improving <strong>BLEU, ROUGE, and CLIPScore</strong> benchmarks for CCTV-specific image captioning.",
+        "Integrated <strong>OCR</strong>, <strong>translation</strong>, and <strong>small language models</strong> for extracting and processing textual data from camera feeds across multilingual environments.",
+        "Built a <strong>conversational interface</strong> to query structured CCTV data - retrieve relevant camera feeds or extracted insights via natural language keywords.",
+        "Solution architecture developed during <strong>M.Tech thesis</strong>; system is <strong>production-deployed on-premise</strong> at an organization for real-time monitoring.",
+        "Awarded the <strong>India AI Fellowship by MeitY</strong> for AI research excellence. Research paper <strong>published at ICDSAAI 2025</strong>.",
+      ],
+      technologies: ["Finetuning", "Vision Transformers", "OCR", "Translation", "Small LMs", "BLEU", "ROUGE", "CLIPScore", "Python", "PyTorch", "OpenCV", "FastAPI", "On-Premise"],
+      link: "https://link.springer.com/chapter/10.1007/978-3-031-81821-4_18",
+      github: "#",
+      image: "/portfolio/cctv_data.jpg",
+      images: [
+        { src: "/portfolio/cctv_data.jpg", caption: "Structured data extraction from live CCTV camera feed using finetuned vision model" },
+        { src: "/portfolio/cctv_recomenndation.jpg", caption: "Conversational querying - keyword-based camera feed suggestions and live retrieval" },
+      ],
+      icon: Camera,
+      gradient: "from-amber-500 to-orange-600",
+      featured: true,
+    },
+    {
+      title: "QueryForge AI - Agentic Text-to-SQL",
+      shortDescription: "7-agent LangGraph pipeline with dual HITL gates, self-healing SQL loop - 98% accuracy on a 78-table production database",
+      description:
+        "A production-grade Agentic Text-to-SQL system built on a LangGraph StateGraph that converts plain English into SQL across PostgreSQL, MySQL, and SQLite. Orchestrates 7 specialized agents with parallel schema fan-out, dual Human-in-the-Loop approval gates, and an automatic self-healing retry loop - validated at 98% accuracy on a 78-table enterprise production database.",
+      bullets: [
+        "Built a <strong>7-agent LangGraph StateGraph</strong> (Schema Analyzer, Planner, SQL Generator, Validator, Self-Healer, Executor, Visualizer) with parallel fan-out and conditional runtime routing across <strong>PostgreSQL, MySQL, and SQLite</strong>.",
+        "Implemented <strong>dual HITL safety gates</strong> - Gate 1 approves the NL execution plan; Gate 2 confirms exact SQL before any INSERT/UPDATE/DELETE - with server-side UUID session persistence.",
+        "<strong>Self-Healing loop</strong> injects error context back into the SQL Generator for up to <strong>3 automatic retries</strong>; Visualizer Agent auto-selects the best chart type from result semantics.",
+      ],
+      technologies: ["LangGraph", "LangChain", "Llama 4 Scout 17B", "Groq", "FastAPI", "SQLAlchemy", "PostgreSQL", "MySQL", "SQLite", "Pydantic v2", "Agentic AI", "HITL"],
+      link: "https://www.youtube.com/watch?v=so4ItTa0DwQ",
+      github: "https://github.com/MiT1011/text_to_sql",
+      image: "/portfolio/queryforge_result.png",
+      images: [
+        { src: "/portfolio/queryforge_db.png", caption: "DB Connection & Auto Schema Introspection - 23-table PostgreSQL" },
+        { src: "/portfolio/queryforge_er.png", caption: "ER Diagram - Complex FK relationships across 23 tables handled by the Schema Agent" },
+        { src: "/portfolio/queryforge_plan.png", caption: "Planner Agent - Human-in-the-Loop approval gate before SQL generation" },
+        { src: "/portfolio/queryforge_result.png", caption: "Execution result with Visualizer Agent auto-selecting chart type" },
+      ],
+      icon: Database,
+      gradient: "from-green-500 to-teal-500",
+      featured: true,
+    },
+    {
+      title: "Production LLM Infrastructure",
+      shortDescription: "Llama 70B (BF16) on H100 GPUs — vLLM & TensorRT-LLM inference with Grafana/Prometheus observability and production request optimization",
+      description:
+        "A production-grade local LLM deployment platform serving Llama 70B in full BF16 precision on NVIDIA H100 GPUs for maximum output quality. Explored and benchmarked both vLLM and TensorRT-LLM as inference backends independently, with NVIDIA NIM for containerized model serving. In parallel, deployed a Llama 3 70B FP8 quantized variant for cost-efficient general-purpose tasks. The entire stack is monitored via a Grafana + Prometheus observability layer with production-grade request optimization.",
+      bullets: [
+        "Deployed <strong>Llama 70B in full BF16 precision</strong> on <strong>NVIDIA H100 GPUs</strong> for maximum output quality — no quantization trade-offs for critical inference workloads.",
+        "Explored and benchmarked <strong>vLLM</strong> (continuous batching, PagedAttention, tensor parallelism) and <strong>TensorRT-LLM</strong> independently as inference backends, comparing throughput, latency, and resource utilization.",
+        "Deployed a parallel <strong>Llama 3 70B FP8 quantized</strong> instance for general-purpose tasks — reducing compute cost while maintaining output quality for non-critical workloads.",
+        "Containerized serving with <strong>NVIDIA NIM</strong> for reproducible, scalable deployments with built-in health checks and auto-recovery.",
+        "Built a full <strong>Grafana + Prometheus</strong> observability stack tracking GPU utilization, tokens/sec, request queue depth, P95/P99 latency, and VRAM usage in real-time.",
+        "Implemented <strong>production request optimization</strong> — dynamic batching, request queuing, rate limiting, and load balancing across multi-GPU nodes for sustained high-concurrency workloads.",
+      ],
+      technologies: ["vLLM", "TensorRT-LLM", "NVIDIA NIM", "Llama 70B", "Llama 3 70B FP8", "BF16", "H100 GPU", "Grafana", "Prometheus", "Docker", "Kubernetes", "LLMOps"],
+      link: "#",
+      github: "#",
+      image: "/portfolio/llm_deployment.png",
+      icon: Server,
+      gradient: "from-emerald-500 to-cyan-600",
+      featured: true,
+    },
+    {
       title: "Conversational AI Assistant",
-      shortDescription: "Production-ready multimodal AI — text, audio, image & PDF inputs with RAG",
+      shortDescription: "Production-ready multimodal AI - text, audio, image & PDF inputs with RAG",
       description:
         "A production-ready multimodal conversational AI supporting 4 input modalities (text, audio, image, PDF) with a fully integrated RAG pipeline for answering questions directly from uploaded documents.",
       bullets: [
-        "Supports 4 modalities: text, audio, image, and PDF inputs with a fully integrated RAG pipeline for document Q&A.",
-        "Integrated semantic search using FAISS vector store with Llama 3.3 70B via Groq, OpenAI Whisper for audio transcription, and Llama 3.2 Vision for image understanding.",
-        "Deployed on Streamlit Cloud with session-aware architecture, maintaining persistent chat history across multi-turn conversations.",
+        "Supports <strong>4 modalities</strong>: text, audio, image, and PDF inputs with a fully integrated <strong>RAG pipeline</strong> for document Q&A.",
+        "Integrated semantic search using <strong>FAISS vector store</strong> with <strong>Llama 3.3 70B</strong> via Groq, <strong>OpenAI Whisper</strong> for audio transcription, and <strong>Llama 3.2 Vision</strong> for image understanding.",
+        "Deployed on <strong>Streamlit Cloud</strong> with session-aware architecture, maintaining persistent chat history across multi-turn conversations.",
       ],
       technologies: ["FAISS", "Llama 3.3 70B", "Llama 3.2 Vision", "OpenAI Whisper", "Groq", "LangChain", "Streamlit", "RAG"],
       link: "https://chat-all-mit-patel.streamlit.app/",
@@ -46,38 +115,14 @@ const Projects = () => {
       gradient: "from-purple-600 to-blue-500",
     },
     {
-      title: "QueryForge AI — Agentic Text-to-SQL",
-      shortDescription: "7-agent LangGraph pipeline with dual HITL gates, self-healing SQL loop — 98% accuracy on a 78-table production database",
-      description:
-        "A production-grade Agentic Text-to-SQL system built on a LangGraph StateGraph that converts plain English into SQL across PostgreSQL, MySQL, and SQLite. Orchestrates 7 specialized agents with parallel schema fan-out, dual Human-in-the-Loop approval gates, and an automatic self-healing retry loop — validated at 98% accuracy on a 78-table enterprise production database.",
-      bullets: [
-        "Built a 7-agent LangGraph StateGraph (Schema Analyzer, Planner, SQL Generator, Validator, Self-Healer, Executor, Visualizer) with parallel fan-out, typed shared AgentState, and conditional runtime routing across PostgreSQL, MySQL, and SQLite.",
-        "Implemented dual HITL safety gates — Gate 1 approves the NL execution plan before SQL is generated; Gate 2 confirms the exact SQL before any INSERT/UPDATE/DELETE runs — with server-side UUID session persistence across all three API calls.",
-        "Self-Healing loop catches Validator errors and injects full error context back into the SQL Generator for up to 3 automatic retries; Visualizer Agent auto-selects the best chart type (bar, line, pie, scatter, table) from result semantics.",
-      ],
-      technologies: ["LangGraph", "LangChain", "Llama 4 Scout 17B", "Groq", "FastAPI", "SQLAlchemy", "PostgreSQL", "MySQL", "SQLite", "Pydantic v2", "Agentic AI", "HITL"],
-      link: "https://www.youtube.com/watch?v=so4ItTa0DwQ",
-      github: "https://github.com/MiT1011/text_to_sql",
-      image: "/portfolio/queryforge_result.png",
-      images: [
-        { src: "/portfolio/queryforge_db.png", caption: "DB Connection & Auto Schema Introspection — 23-table PostgreSQL" },
-        { src: "/portfolio/queryforge_er.png", caption: "ER Diagram — Complex FK relationships across 23 tables handled by the Schema Agent" },
-        { src: "/portfolio/queryforge_plan.png", caption: "Planner Agent — Human-in-the-Loop approval gate before SQL generation" },
-        { src: "/portfolio/queryforge_result.png", caption: "Execution result with Visualizer Agent auto-selecting chart type" },
-      ],
-      icon: Database,
-      gradient: "from-green-500 to-teal-500",
-      featured: true,
-    },
-    {
       title: "Movie Recommendation System",
       shortDescription: "NLP-based personalized movie suggestions using TMDB data",
       description:
         "Developed using Count Vectorizer and Cosine Similarity on the TMDB database, with data preprocessing using Pandas, NumPy, and Matplotlib. Deployed as an interactive web application on Streamlit Cloud.",
       bullets: [
-        "Built content-based filtering using Count Vectorizer and Cosine Similarity on 5000+ TMDB movies.",
-        "Full data preprocessing pipeline using Pandas, NumPy, and Matplotlib for feature engineering.",
-        "Deployed as an interactive Streamlit web app with live movie poster fetching from TMDB API.",
+        "Built <strong>content-based filtering</strong> using Count Vectorizer and <strong>Cosine Similarity</strong> on 5000+ TMDB movies.",
+        "Full data preprocessing pipeline using <strong>Pandas, NumPy, and Matplotlib</strong> for feature engineering.",
+        "Deployed as an interactive <strong>Streamlit</strong> web app with live movie poster fetching from <strong>TMDB API</strong>.",
       ],
       technologies: ["NLP", "Cosine Similarity", "TMDB API", "Pandas", "NumPy", "Streamlit"],
       link: "https://movie-recommender-system-by-meet-patel.streamlit.app/",
@@ -87,14 +132,14 @@ const Projects = () => {
       gradient: "from-orange-500 to-red-500",
     },
     {
-      title: "Text to SQL — Gemini (Classic)",
+      title: "Text to SQL - Gemini (Classic)",
       shortDescription: "Convert natural language to SQL queries using Google Gemini",
       description:
         "A Text-to-SQL query extractor web application using Google Gemini Pro, where text input is converted into SQL queries and retrieves data from a SQLite database. Deployed on HuggingFace Spaces.",
       bullets: [
-        "Converts plain-English questions into accurate SQL queries using Google Gemini Pro.",
-        "Retrieves and displays results from a SQLite student database in real-time.",
-        "Simple and clean Streamlit interface deployed on HuggingFace Spaces for instant access.",
+        "Converts plain-English questions into accurate SQL queries using <strong>Google Gemini Pro</strong>.",
+        "Retrieves and displays results from a <strong>SQLite</strong> student database in real-time.",
+        "Simple and clean Streamlit interface deployed on <strong>HuggingFace Spaces</strong> for instant access.",
       ],
       technologies: ["Gemini Pro", "HuggingFace", "LangChain", "SQLite", "Streamlit", "Text-to-SQL"],
       link: "https://huggingface.co/spaces/VirtualMachine01/text2query_gemini",
@@ -244,7 +289,7 @@ const Projects = () => {
                 </div>
 
                 <div className="p-8">
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">{selectedProject.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedProject.description }} />
 
                   {/* Bullet points */}
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Key Features</h3>
@@ -252,7 +297,7 @@ const Projects = () => {
                     {selectedProject.bullets.map((b, i) => (
                       <li key={i} className="flex gap-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                         <span className="text-purple-500 mt-0.5 flex-shrink-0">▸</span>
-                        <span>{b}</span>
+                        <span dangerouslySetInnerHTML={{ __html: b }} />
                       </li>
                     ))}
                   </ul>
@@ -310,16 +355,14 @@ const Projects = () => {
                       >
                         {selectedProject.link.includes("youtube") ? (
                           <><Youtube size={16} /> Watch Demo</>
+                        ) : selectedProject.link.includes("springer") || selectedProject.link.includes("arxiv") || selectedProject.link.includes("ieee") ? (
+                          <><FileText size={16} /> Read Paper</>
                         ) : (
                           <><Link size={16} /> Live Demo</>
                         )}
                       </a>
                     )}
-                    {selectedProject.github === "#" && selectedProject.link === "#" && (
-                      <span className="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full text-sm font-medium">
-                        🔒 Links coming soon
-                      </span>
-                    )}
+
                   </div>
                 </div>
               </motion.div>
