@@ -41,7 +41,7 @@ const Projects = () => {
         "Awarded the <strong>India AI Fellowship by MeitY</strong> for AI research excellence. Research paper <strong>published at ICDSAAI 2025</strong>.",
       ],
       technologies: ["Finetuning", "Vision Transformers", "OCR", "Translation", "Small LMs", "BLEU", "ROUGE", "CLIPScore", "Python", "PyTorch", "OpenCV", "FastAPI", "On-Premise"],
-      link: "https://link.springer.com/chapter/10.1007/978-3-031-81821-4_18",
+      link: "https://ieeexplore.ieee.org/abstract/document/11011827",
       github: "#",
       image: "/portfolio/cctv_data.jpg",
       images: [
