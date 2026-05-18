@@ -83,7 +83,7 @@ const toolGroups = [
     icon: Wrench,
     items: [
       'FastAPI', 'Flask', 'Streamlit', 'Pandas',
-      'Tavily Web Search', 'VR', 'AR',
+      'Tavily Web Search', 'Virtual Reality', 'Augmented Reality',
       'Game Development', 'Unity',
     ],
   },

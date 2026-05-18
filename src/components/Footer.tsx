@@ -38,7 +38,7 @@ const Footer = () => {
             <p className="text-gray-300 text-sm leading-relaxed">
               AI Software Engineer specializing in production Generative AI systems, RAG pipelines, and agentic workflows.
               <br /><br />
-              There are more projects and experiments on my GitHub and LinkedIn.
+              There are more projects and experiments on my GitHub.
               <br />
               Feel free to connect - Always happy to chat!
             </p>
