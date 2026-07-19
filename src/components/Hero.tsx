@@ -221,7 +221,7 @@ const Hero = () => {
           className="md:w-1/2 flex justify-center mt-10 md:mt-0"
         >
           <img
-            src="/portfolio/cartoon.png"
+            src="/cartoon.png"
             alt="AI Technology Concept"
             className="w-full max-w-xs sm:max-w-sm md:max-w-md max-h-[40vh] md:max-h-none object-contain transform hover:scale-105 transition-transform duration-300"
           />

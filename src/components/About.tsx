@@ -47,7 +47,7 @@ const About = () => {
           >
             <div className="w-64 h-64 mx-auto overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-1">
               <img
-                src="/portfolio/profile_photo.jpg"
+                src="/profile_photo.jpg"
                 alt="Meet Patel"
                 className="w-full h-full object-cover rounded-full"
                 style={{ objectPosition: "50% 60%" }}
