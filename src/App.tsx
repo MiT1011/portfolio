@@ -5,7 +5,7 @@ import About from './components/About';
 import Timeline from './components/Timeline';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Testimonials from './components/Testimonials';
+import Philosophy from './components/Philosophy';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import OpenToWork from './components/OpenToWork';
@@ -21,7 +21,7 @@ function App() {
         <Timeline />
         <Projects />
         <Skills />
-        <Testimonials />
+        <Philosophy />
       </main>
       <Footer />
       <Chatbot />

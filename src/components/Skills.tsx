@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
 import {
-  Brain, Database, Globe, Code, Server, Cpu,
-  Zap, Box, Activity, Layers, Workflow,
-  Sparkles, Search, BarChart3, GitBranch,
+  Brain, Database, Code, Cpu,
+  Zap, Layers, Workflow,
+  Sparkles, Search,
   Cloud, MessageSquare, Shield, Wrench,
-  Gamepad2, Eye,
 } from 'lucide-react';
 
 /* ─── core domains (top chips) ─── */
@@ -77,14 +76,14 @@ const toolGroups = [
     items: ['Python', 'C#', 'SQL'],
   },
   {
-    label: 'Other',
+    label: 'Backend & APIs',
     color: 'text-pink-500',
     borderHover: 'hover:border-pink-400/40 dark:hover:border-pink-500/30',
     icon: Wrench,
     items: [
-      'FastAPI', 'Flask', 'Streamlit', 'Pandas',
-      'Tavily Web Search', 'Virtual Reality', 'Augmented Reality',
-      'Game Development', 'Unity',
+      'FastAPI', 'REST APIs', 'WebSockets', 'SQLAlchemy',
+      'Pydantic', 'Rate Limiting', 'Flask', 'Streamlit',
+      'Pandas', 'Tavily Web Search',
     ],
   },
 ];

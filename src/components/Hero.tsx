@@ -7,10 +7,6 @@ const scrollToSection = (sectionId: string) => {
   section?.scrollIntoView({ behavior: 'smooth' });
 };
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
 const Hero = () => {
   // Track if animation has already played
   const [hasAnimationPlayed, setHasAnimationPlayed] = useState(false);
@@ -18,12 +14,11 @@ const Hero = () => {
   // Typewriter cycling animation
   const specializations = [
     "Generative AI",
-    "Large Language Model",
+    "Large Language Models",
     "Agentic Workflows",
     "Multi-Agent Systems",
-    "Game Development",
-    "Virtual Reality",
-    "Augmented Reality",
+    "RAG Pipelines",
+    "LLM Deployment & Inference",
   ];
   const [typedText, setTypedText] = useState("");
   const [specIndex, setSpecIndex] = useState(0);

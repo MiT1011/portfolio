@@ -14,7 +14,7 @@ Here is everything about Meet Patel:
 ## Profile
 - Name: Meet Patel
 - Role: AI Software Engineer
-- Total Professional Experience: ~2 years (1 year full-time at Quantum AI Global + 8 months AI research internship at DRDO + 6 months game dev internship)
+- Total Professional Experience: ~2 years (1 year full-time at Quantum AI Global + 8 months as an AI Researcher at DRDO + 6 months game development)
 - Specialization: LLM & Generative AI, Agentic Workflows, RAG Pipelines, Multi-Agent Systems, Computer Vision, Deep Learning, NLP, LLM Deployment & Inference Optimization
 - Also experienced in: Game Development (Unity/C#), Virtual Reality, Augmented Reality
 - Location: Hyderabad, India
@@ -32,8 +32,8 @@ This is my current full-time role where I work on production-grade LLM systems:
 - Developed a 2-tier multi-agent network analysis module using LangGraph with 4–5 agents per tier and 8–10 specialized tools for distributed private-network environments.
 - Key tech: LangGraph, LangChain, PydanticAI, vLLM, TensorRT-LLM, NVIDIA NIM, FastAPI, Docker, Kubernetes, PostgreSQL, Redis, Prometheus, Grafana
 
-## Previous — AI Research Intern at DRDO (July 2024 – March 2025, 8 months)
-MTech research internship at DRDO's DIA-SVPCoE under Gujarat University:
+## Previous — AI Researcher at DRDO (July 2024 – March 2025, 8 months)
+AI research role at DRDO's DIA-SVPCoE under Gujarat University:
 - MTech thesis: "Data Extraction from CCTV Images with Transformer-Based Models" — built and deployed a vision-language model for automated surveillance data extraction.
 - Fine-tuned a lightweight edge model on 50,000+ CCTV images. Benchmark improvements: BLEU 62.9→78.1, CLIP Score 78.3→87.5, ROUGE 43.8→56.4.
 - Integrated OCR, translation, and small language models for extracting textual data from camera feeds across multilingual environments.
@@ -125,17 +125,22 @@ Other: FastAPI, Flask, Streamlit, Pandas, Tavily, Unity, VR, AR
 
 IMPORTANT RULES:
 - ALWAYS answer in FIRST PERSON. Say "I built", "my experience" — NEVER "Meet built".
-- Experience: "~2 years" (1yr full-time + 8mo research + 6mo game dev). Do NOT say 3 years.
+- Experience: approximately 2 years of professional experience (1yr full-time + 8mo AI research at DRDO + 6mo game dev). Do NOT inflate this number. BUT always frame it positively: lead with the depth of hands-on production work — shipping LLM systems on H100 GPUs, multi-agent architectures, RAG pipelines, and end-to-end deployments — knowledge and skills that typically take much longer to acquire. Example framing: "I have around 2 years of professional experience, but in that time I've built and shipped production-grade LLM systems end to end — from multi-agent LangGraph pipelines to H100 GPU deployments with vLLM and TensorRT-LLM."
+- When my time at DRDO comes up, always call it "AI Researcher" — never "intern" or "internship".
 - Keep answers SHORT — 2-3 sentences for simple, 4-5 for detailed.
 - Use bullet points, **bold** for key terms.
 - Be enthusiastic but brief and ACCURATE. This is a chat widget, not an essay.`;
+
+// Escape HTML before injecting LLM output via dangerouslySetInnerHTML
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // Simple markdown renderer for chat messages
 const renderMarkdown = (text: string) => {
   const lines = text.split('\n');
   return lines.map((line, i) => {
     // Replace **bold** with <strong>
-    let rendered = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    let rendered = escapeHtml(line).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     // Replace *italic* with <em>
     rendered = rendered.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
     // Bullet points
@@ -184,12 +189,8 @@ const Chatbot: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
-
-    const userMessage: Message = { role: 'user', content: input.trim() };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput('');
+  const askAssistant = async (question: string, history: Message[]) => {
+    setMessages((prev) => [...prev, { role: 'user', content: question }]);
     setIsLoading(true);
 
     try {
@@ -199,14 +200,13 @@ const Chatbot: React.FC = () => {
           ...prev,
           { role: 'assistant', content: "⚠️ Groq API key is not configured. Please set VITE_GROQ_API_KEY in your environment." },
         ]);
-        setIsLoading(false);
         return;
       }
 
       const apiMessages = [
         { role: 'system', content: SYSTEM_PROMPT },
-        ...messages.map((m) => ({ role: m.role, content: m.content })),
-        { role: 'user', content: userMessage.content },
+        ...history.map((m) => ({ role: m.role, content: m.content })),
+        { role: 'user', content: question },
       ];
 
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -216,7 +216,7 @@ const Chatbot: React.FC = () => {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: 'meta-llama/llama-4-scout-17b-16e-instruct',
+          model: 'llama-3.3-70b-versatile',
           messages: apiMessages,
           temperature: 0.7,
           max_tokens: 512,
@@ -240,6 +240,13 @@ const Chatbot: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const sendMessage = () => {
+    if (!input.trim() || isLoading) return;
+    const question = input.trim();
+    setInput('');
+    askAssistant(question, messages);
   };
 
   const clearChat = () => {
@@ -364,35 +371,7 @@ const Chatbot: React.FC = () => {
                         key={i}
                         onClick={() => {
                           setInput('');
-                          const userMessage: Message = { role: 'user', content: q };
-                          setMessages((prev) => [...prev, userMessage]);
-                          setIsLoading(true);
-
-                          const apiKey = import.meta.env.VITE_GROQ_API_KEY;
-                          if (!apiKey) {
-                            setMessages((prev) => [...prev, { role: 'assistant', content: "⚠️ Groq API key is not configured." }]);
-                            setIsLoading(false);
-                            return;
-                          }
-
-                          fetch('https://api.groq.com/openai/v1/chat/completions', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-                            body: JSON.stringify({
-                              model: 'meta-llama/llama-4-scout-17b-16e-instruct',
-                              messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: q }],
-                              temperature: 0.7,
-                              max_tokens: 512,
-                            }),
-                          })
-                            .then((res) => res.json())
-                            .then((data) => {
-                              setMessages((prev) => [...prev, { role: 'assistant', content: data.choices?.[0]?.message?.content || "Sorry, please try again." }]);
-                            })
-                            .catch(() => {
-                              setMessages((prev) => [...prev, { role: 'assistant', content: "Something went wrong. Please try again." }]);
-                            })
-                            .finally(() => setIsLoading(false));
+                          askAssistant(q, messages);
                         }}
                         className="text-left text-xs bg-purple-50 dark:bg-purple-900/30 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 px-3 py-2 rounded-xl transition-colors border border-purple-100 dark:border-purple-800"
                       >

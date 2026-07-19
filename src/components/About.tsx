@@ -1,87 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, FileText, Brain, Database, Globe, Terminal, Gamepad2Icon, Code, Library, Server, Cpu, Clock, Lightbulb, Shuffle, Shield, Zap, Box, Activity, Code2, Users } from 'lucide-react';
-
-type SkillSection = 'domains' | 'technical' | 'soft';
-
-const technicalSkills = {
-  domains: [
-    { name: 'Generative AI', icon: Brain },
-    { name: 'Large Language Models', icon: Brain },
-    { name: 'Multi-Agent Systems', icon: Cpu },
-    { name: 'RAG Pipelines', icon: Database },
-    { name: 'Finetuning', icon: Zap },
-    { name: 'Computer Vision', icon: Globe },
-    { name: 'Natural Language Processing', icon: Globe },
-    { name: 'Deep Learning', icon: Brain },
-    { name: 'Machine Learning', icon: Brain },
-    { name: 'Edge AI Deployment', icon: Activity },
-    { name: 'Responsible AI', icon: Shield },
-    { name: 'Prompt Engineering', icon: Lightbulb },
-    { name: 'Virtual Reality', icon: Globe },
-    { name: 'Game Development', icon: Gamepad2Icon },
-  ],
-  languages: [
-    { name: 'Python', icon: Code },
-    { name: 'C#', icon: Code },
-    { name: 'C++', icon: Code },
-  ],
-  libraries: [
-    { name: 'LangChain', icon: Library },
-    { name: 'LangGraph', icon: Library },
-    { name: 'PydanticAI', icon: Library },
-    { name: 'CrewAI', icon: Library },
-    { name: 'HF Transformers', icon: Library },
-    { name: 'PyTorch', icon: Library },
-    { name: 'TensorFlow', icon: Library },
-    { name: 'Keras', icon: Library },
-    { name: 'OpenCV', icon: Library },
-    { name: 'FastAPI', icon: Library },
-    { name: 'Streamlit', icon: Library },
-    { name: 'Numpy', icon: Library },
-    { name: 'Pandas', icon: Library },
-    { name: 'Tavily', icon: Library },
-    { name: 'LangSmith', icon: Library },
-    { name: 'WebSockets', icon: Library },
-  ],
-  vectordb: [
-    { name: 'FAISS', icon: Database },
-    { name: 'Pinecone', icon: Database },
-    { name: 'Milvus', icon: Database },
-    { name: 'Chroma', icon: Database },
-    { name: 'PgVector', icon: Database },
-    { name: 'PostgreSQL', icon: Database },
-    { name: 'Redis', icon: Database },
-    { name: 'SQLite', icon: Database },
-  ],
-  frameworks: [
-    { name: 'vLLM', icon: Cpu },
-    { name: 'TensorRT', icon: Cpu },
-    { name: 'NVIDIA NIM', icon: Cpu },
-    { name: 'LangGraph', icon: Cpu },
-    { name: 'CrewAI', icon: Cpu },
-    { name: 'PydanticAI', icon: Cpu },
-  ],
-  deployment: [
-    { name: 'Docker', icon: Box },
-    { name: 'Kubernetes', icon: Server },
-    { name: 'CI/CD', icon: Activity },
-    { name: 'Git', icon: Code2 },
-    { name: 'Prometheus', icon: Activity },
-    { name: 'Grafana', icon: Activity },
-    { name: 'LLMOps', icon: Cpu },
-    { name: 'LangSmith', icon: Activity },
-  ],
-};
-
-const softSkills = [
-  { name: 'Problem Solving', icon: Terminal },
-  { name: 'Leadership', icon: Users },
-  { name: 'Teamwork', icon: Users },
-  { name: 'Time Management', icon: Clock },
-  { name: 'Creativity', icon: Lightbulb },
-  { name: 'Adaptability', icon: Shuffle },
-];
+import { Award, FileText } from 'lucide-react';
 
 const achievements = [
   {
@@ -156,7 +75,7 @@ const About = () => {
               I'm an <span className="font-semibold text-purple-600">AI Software Engineer</span> with hands-on experience building and shipping production Generative AI systems - including RAG pipelines, vision-language models, finetuning, Agentic workflows, and complex multi-agent architectures.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              Currently at <span className="font-semibold">Quantum AI Global</span>, I deploy open-source LLMs on H100 GPUs using vLLM, TensorRT and NVIDIA NIM, design multi-agent LangGraph workflows with human-in-the-loop reasoning, and build RAG-powered applications generating 15,000–20,000 token structured outputs.
+              Currently at <span className="font-semibold">Quantum AI Global</span>, I deploy open-source LLMs on H100 GPUs using vLLM, TensorRT and NVIDIA NIM, design multi-agent LangGraph workflows with human-in-the-loop reasoning, and build scalable FastAPI backends powering RAG applications that generate 15,000–20,000 token structured outputs.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
               I was awarded the <span className="font-semibold text-yellow-600 dark:text-yellow-400">India AI Fellowship by MeitY</span> for my research at DRDO on Transformer-based CCTV data extraction, which was published at ICDSAAI 2025. I specialize in LangGraph, CrewAI, PydanticAI and end-to-end LLM deployment.

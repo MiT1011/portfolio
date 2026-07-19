@@ -35,7 +35,7 @@ const Timeline = () => {
     },
     {
       year: "July 2024 – March 2025",
-      title: "AI Research Intern",
+      title: "AI Researcher",
       company: "DRDO (DIA-SVPCoE)",
       companyLink: "https://diasvpcoe.gujaratuniversity.ac.in/",
       summary: "MTech thesis research on CCTV data extraction — finetuned vision model on 50K images, built conversational surveillance system. Awarded MeitY India AI Fellowship.",
@@ -48,7 +48,7 @@ const Timeline = () => {
         "Research paper published at ICDSAAI 2025 — \"Transformer-based Models for Visual and Textual Data Extraction\" (IEEE Xplore).",
         "Designed a local tool for document summarization, translation, and semantic search over large internal databases — currently in use in a large production environment.",
       ],
-      type: "internship",
+      type: "research",
       icon: Briefcase,
       color: "bg-blue-500",
     },
@@ -107,12 +107,14 @@ const Timeline = () => {
 
   const typeStyles: Record<string, string> = {
     work: "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-100",
+    research: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
     internship: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
     education: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100",
   };
 
   const typeLabels: Record<string, string> = {
     work: "Full-time",
+    research: "Research",
     internship: "Internship",
     education: "Education",
   };
